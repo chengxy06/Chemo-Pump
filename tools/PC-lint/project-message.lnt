@@ -1,0 +1,388 @@
+// Please note -- this is a set of error suppression
+//                options.  Please adjust to suit your own policies
+//                See  manual (chapter LIVING WITH LINT)
+//                for further details.
+//this is project's error suppression options
+
+//suppress some lib error
+-elib(18)
+
+//below are copy from Medfusion_lint_message_options.lnt
+//// Base Warning Level
+// Warning level 3 - Error, Warning and Informational messages.
+-w2
+
+// sizeof() in preprocessor is OK.
+-e677	
+// Cast used within preprocessor conditional statement, is OK.
+-e688
+// Converting enum to int is OK.
+-e641
+// enums aren't limited to int-sized values.  From the compiler manual:
+// "The enum keyword creates each object with the shortest integer type (char, int or long) required to contain its value."
+//-e575
+// Disable the Info messages regarding the exceeding of some ANSI/ISO limits, in particular:
+// - External identifiers limited to 31 significant characters.
+// - Number of external identifiers limited to 511.
+// According to the compiler's help file, we far exceed these limits:
+// "- Long identifiers  up to 255 significant characters.
+//  - Up to 32000 external symbols."
+// Arguably, this disable would be better placed in the project-specific config file (4000_Head_lint_message_options.lnt)
+// instead of this compiler-specific config file, since these are really portability warnings, and that's not a concern of the
+// compiler but rather the project.  However, it's unlikely that any code this PC-Lint config is run against will care about 
+// limits this small, making these strictly noise.
+-e793
+
+//// Specific warnings to suppress.
+// Disable "Function '___' of thread '___' has an unprotected write access to variable '___' which is used by function '___' of thread '___'"
+// There are too many false positives for this to be of any use.
+//-e457
+// Disable "Function '___' of thread '___' has an unprotected read access to variable '___' which is modified by function '___' of thread '___'"
+// There are too many false positives for this to be of any use.
+//-e458
+// Don't care about negative Indentation, has no bearing on correctness.
+-e525	
+// Don't care about positive Indentation, has no bearing on correctness.
+-e539	
+// Repeated include file 'FileName'.  This message warns if a translation unit includes a header more than once, even indirectly.
+// Since we're using include guards, this message is spurious.
+-e537
+// Disable Warning: Ignoring return value.
+// We have no policy requiring the use of all return values, so this is unnecessary.
+-e534
+// enum constant '___' not used within switch
+// We have many switches which switch on an enum-typed variable which deliberately do not cover every
+// possible enum value, so these messages are of no value.
+-e787
+// enum constant '___' not used within defaulted switch
+// We have many switches which switch on an enum-typed variable which deliberately do not cover every
+// possible enum value, so these messages are of no value.
+-e788
+// while(1) ...
+// This is used legitimately in many places, e.g. each of the tasks' main loops.
+-e716
+// do ... while(0);
+// This is an explicitly helpful construct in macros which we do not want to warn about.
+-e717
+// Expected positive indentation from ___
+// Don't care, does not affect correctness.
+-e725
+// Loss of precision (Context) (Integer bits to Integer bits). An assignment is being made into an object smaller than an int. This results in nothing but false positives,
+// and appears to be a defect in PC-Lint 9.0c's value tracking.  Even though there are clear checks
+// on values, this will warn regardless, and with the incorrect number of bits on the LHS.
+//-e734
+// Significant prototype coercion (___) ___ to ___
+// "Usually the two types are arithmetic of differing sizes or one is float and the other
+//  integral. This is flagged because if the program were to be translated by a compiler that does not support prototype conversion [...]"
+// We'll never be using such a compiler (i.e. a K&R compiler).
+-e747
+// ANSI/ISO limit of 31 'significant characters in an external identifier' exceeded 
+// Longer identifiers are acceptable.
+-"esym(793,significant characters in an external identifier)"
+// Reference cited in prior message.  This is just repeated contextual info for some previous message and mainly just clutters up the output.
+-e831
+// This is simple order of operations.  For example lint wants a + b + c + d to read ((a+b)+c)+d.  This does not improve the 
+// quality of the code or create errors.  This is to help clarify order of operations.  It can at time make code harder to read
+-e834
+// A zero has been given as ___ argument to operator '___'. For example: n = n + 0 - m;
+// This is another instance of too many false positives to be of any diagnostic use.
+-e835
+// Symbol '___' has same enumerator value '___' as enumerator '___'
+// Some of our enumerators deliberately duplicate the values of others, so we don't want this.
+-e849
+// It is okay to modify the loop index of a for loop while processing inside of the for loop.
+// For example:for( i = 0; i < 100; i++ ){a[i++] = 0;}
+// enabling this message creates supurious output
+-e850
+
+// Do two passes (the first plus one "specific walk").
+-passes=2
+
+// Disable the following during specific walk.
+// Suspicious pointer-to-pointer conversion (area too small). For example:long *f( char *p ) { return (long *) p; }
+// Too many false positives and duplicate hits to be of any diagnostic value.
+-specific(-e826,)
+
+
+
+//below are defined by MSHA
+//below can configure by lint configure tool
+-e720					  // allow direct test of assignment, For example: if(a=getchar()){...}
+//-e502 -e713 -e737 -eau  // don't report on signed/unsigned mismatches
+//-e701 -e703             // shifting int left is OK
+//-e718                   // allow calls to undeclared C functions
+//-e746                   // allow calls w/o prototypes in C. That is the called function is different from the prototype.
+
+//suppress below errors
+-e528   //Symbol 'Symbol' (Location) not referenced
+-e766   //Header file FileName not used in module String
+
+-e715   //Symbol 'Symbol' (Location) not referenced
+-e744   //switch statement has no default 
+-e838   //Previously assigned value to variable 'Symbol' has not been used
+-e818   //Pointer parameter 'Symbol' (Location) could be declared ptr to const
+-e783   //Line does not end with new-line
+-e844   //Pointer variable 'Symbol' (Location) could be declared as pointing to const
+-e750   //local macro 'Symbol' (Location) not referenced
+-e762   //Redundantly declared symbol 'Symbol' previously declared at Location
+-e524   //Loss of precision (Context) (Type to Type). For example: unsigned long a = (double)13.24;
+
+/*618    Storage class specified after a type  -- A storage class
+       specifier (static, extern, typedef, register or auto) was found
+       after a type was specified.  This is legal but deprecated.
+       Either place the storage class specifier before the type or
+       suppress this message.
+       */
+//const static TS_STATIC_LABEL_TABLE* m_index_obj = NULL;       
+-e618  
+
+/*613    Possible use of null pointer 'Symbol' in [left/right] argument to
+       operator 'String' Reference  -- From information gleaned from
+       earlier statements, it is possible that a null pointer (a pointer
+       whose value is 0) can be used in a context where null pointers
+       are inappropriate.  Such contexts include:  Unary *, pointer
+       increment (++) or decrement(--), addition of pointer to numeric,
+       and subtraction of two pointers.  In the case of binary
+       operators, one of the words 'left' or 'right' is used to
+       designate which operand is null.  Symbol identifies the pointer
+       variable that may be NULL.  See also messages 413 and 794.  */
+//label_obj->func_list->ClearLabel(label_obj->left,label_obj->top,label_obj->right,label_obj->bottom);       
+//-e613       
+
+/*550    Symbol 'Symbol' (Location) not accessed  -- A variable (local to
+       some function) was not accessed.  This means that the value of a
+       variable was never used.  Perhaps the variable was assigned a
+       value but was never used.  Note that a variable's value is not
+       considered accessed by autoincrementing or autodecrementing
+       unless the autoincrement/decrement appears within a larger
+       expression which uses the resulting value.  The same applies to a
+       construct of the form: var += expression.  If an address of a
+       variable is taken, its value is assumed to be accessed. An array,
+       struct or union is considered accessed if any portion thereof is
+       accessed.*/
+//void fun(){int i;return 0;}       
+//-e550
+       
+/*551    Symbol 'Symbol' (Location) not accessed  -- A variable (declared
+       static at the module level) was not accessed though the variable
+       was referenced.  See the explanation under message 550 (above)
+       for a description of "access".*/
+//-e551       
+
+/*64     Type mismatch (Context) (TypeDiff)  -- There was a mismatch in
+       types across an assignment (or implied assignment, see Context).
+       TypeDiff specifies the type difference.*/
+//void fun(TE_HP_STATE state){...}; int a=1;fun(a);
+//-e64
+
+/*522    Highest operator or function lacks side-effects  -- If a
+       statement consists only of an expression, it should either be one
+       of the privileged operators: assignment, increment, decrement or
+       call to an impure function or one modifying its argument(s).  For
+       example if operator * is the built-in operator, the statement
+       *p++; draws this message but p++; does not.  This is because the
+       highest operator is '*' which has no side effects.
+
+       The definition of pure and impure functions and function calls
+       which have side effects are given in the discussion of the pure
+       semantic in section 4. Semantics*/
+//void fun1(){int i; i++;}; fun1();       
+-e522
+
+/*529    Symbol 'Symbol' (Location) not subsequently referenced  -- The
+       named variable was declared but not referenced in a function. */
+//void fun1(){int i;return;};    
+//-e529               
+
+/*570    Loss of sign (Context) (Type to Type)  -- An assignment (or
+       implied assignment, see Context) is being made from a negative
+       constant into an unsigned quantity.  Casting the constant to
+       unsigned will remove the diagnostic but is this what you want.
+       If you are assigning all ones to an unsigned, remember that ~0
+       represents all ones and is more portable than -1. */
+//unsigned int a; a = -1;       
+//-e570     
+   
+//732    Loss of sign (Context) (Type to Type)  -- An assignment (or
+//       implied assignment, see Context) is made from a signed quantity
+//       to an unsigned quantity.  Also, it could not be determined that
+//       the signed quantity had no sign.  For example:
+//
+//               u  =  n;      /* Info 732 */
+//               u  =  4;      /*  OK      */
+//
+//       where u is unsigned and n is not, warrants a message only for the
+//       first assignment, even though the constant 4 is nominally a
+//       signed int.
+//
+//       Make sure that this is not an error (that the assigned value is
+//       never negative) and then use a cast (to unsigned) to remove the
+//       message.                           
+//unsigned long a; long b; a = b;                                                                                                          
+//-e732   
+
+
+/*714    Symbol 'Symbol' (Location) not referenced  -- The named external
+       variable or external function was defined but not referenced.
+       This message is suppressed for unit checkout (-u option).*/       
+-e714
+
+/*726    Extraneous comma ignored  -- A comma followed by a right-brace
+       within an enumeration is not a valid ANSI construct.  The comma
+       is ignored.*/       
+//typedef enum{E_ELOG_RECORD_OK, E_ELOG_RECORD_NOT_INIT,E_ELOG_RECORD_CORRUPT, }TE_ELOG_INTERNAL_ERROR;       
+//-e726
+
+/*752    local declarator 'Symbol' (Location) not referenced  -- A 'local'
+       declarator symbol is one declared in a declaration which appeared
+       in the module file itself as opposed to a header file.  The
+       symbol may have file scope or may have block scope.  But it
+       wasn't referenced.*/      
+-e752
+
+/*785    Too few initializers for aggregate 'Symbol'  -- The number of
+       initializers in a brace-enclosed initializer was less than the
+       number of items in the aggregate.  Default initialization is
+       taken.  An exception is made with the initializer {0}.  This is
+       given a separate message number in the Elective Note category
+       (943).  It is normally considered to be simply a stylized way of
+       initializing all members to 0.*/   
+//unsigned int szz[10] = {1,2,3};       
+-e785
+
+/*843    Variable 'Symbol' (Location) could be declared as const  -- A
+       variable of static storage duration is initialized but never
+       modified thereafter.  Was this an oversight? If the intent of the
+       programmer is to not modify the variable, it could and should be
+       declared as const.  See [30, Item 3] in Section 14. Added
+       Bibliography and message 844.*/            
+-e843       
+
+/*459    Function 'Symbol' whose address was taken has an unprotected
+       access to variable 'Symbol'  -- This message is activated only
+       when it appears that the program has more than one thread.  See
+       Section 8. Multi-thread Suppport to determine what those
+       conditions might be.
+
+       If a function's address is taken, we presume that we are unable
+       to determine statically all the locations from which the function
+       may be called and so we presume that any and all threads can call
+       this function and so the function needs to have protected access
+       to every static variable that it might touch.
+
+       There are several remedies to such a message.  If multiple
+       threads can indeed access this function, then place a mutex lock
+       in the function.  If there already is a mutex lock and we don't
+       recognize it, then set the thread_protected semantic for the
+       function.  If only one thread really accesses this function or if
+       the access is guaranteed to be benign, then, after making sure
+       this condition is commented in the code, use the same
+       thread_protected semantic for the function.
+       */
+-e459       
+ 
+       
+/*765    external 'Symbol' (Location) could be made static  -- An external
+       symbol was referenced in only one module.  It was not declared
+       static (and its type is not qualified with the Microsoft keyword
+       __export).  Some programmers like to make static every symbol
+       they can, because this lightens the load on the linker.  It also
+       represents good documentation.  On the other hand, you may want
+       the symbol to remain external because debuggers often work only
+       on external names.  It's possible, using macros, to have the best
+       of both worlds.*/      
+//-e765        
+
+/*438    Last value assigned to variable 'Symbol' not used  -- A value had
+       been assigned to a variable that was not subsequently used.  The
+       message is issued either at a return statement or at the end of a
+       block when the variable goes out of scope.  For example, consider
+       the following function:
+       
+                 void f( int n )
+                     {
+                     int x = 0, y = 1;
+                     if( n > 0 )
+                         {
+                         int z;
+                         z = x + y;
+                         if( n > z ) { x = 3; return; }
+                         z = 12;
+                         }
+                     }
+       
+       Here we can report that x was assigned a value that had not been
+       used by the time the return statement had been encountered.  We
+       also report that the most recently assigned value to z is unused
+       at the point that z goes out of scope.  See message 838 in
+       Section 13.4 C Informational Messages and flags -fiw and -fiz in
+       Sections 2.3.6 Initialization-is-considered-a-Write flag (-fiw)
+       and 2.3.7 Initialization-by-Zero-is-considered-a-Write flag
+       (-fiz) .
+
+       This message is suppressed if the variable's address is assigned
+       to a pointer (or, equivalently, the variable is used to directly
+       initialize a reference to non-const).*/
+//int fun(){int ret; ret =fun2(); return 2;}
+//-e438       
+
+/*713    Loss of precision (Context) (Type to Type)  -- An assignment (or
+       implied assignment, see Context) is being made from an unsigned
+       quantity to a signed quantity, that will result in the possible
+       loss of one bit of integral precision such as converting from
+       unsigned int to int.  A cast will suppress the message.*/
+//long i = (unsigned long)j;       
+//-e713       
+
+/*826    Suspicious pointer-to-pointer conversion (area too small)  -- A
+       pointer was converted into another either implicitly or
+       explicitly.  The area pointed to by the destination pointer is
+       larger than the area that was designated by the source pointer.
+       For example:
+
+               long *f( char *p ) { return (long *) p; }*/
+//-e826               
+
+/*46     Field type should be int  -- Bit fields in a structure should be
+       typed unsigned or int.  If your compiler allows other kinds of
+       objects, such as char, then simply suppress this message.*/
+-e46       
+
+/*742    Multiple character constant  -- A character constant was found
+       that contained multiple characters, e.g., 'ab'.  This is legal C
+       but the numeric value of the constant is implementation defined.
+       It may be safe to suppress this message because, if more
+       characters are provided than what can fit in an int, message
+       number 25 is given. */
+-e742       
+
+/*656    Arithmetic operation uses (compatible) enum's  -- An arithmetic
+       operator (one of '+', or '-') is used to combine two compatible
+       enumerations.  The type of the result is considered to be the
+       enumeration.  This is considered a very minor deviation from the
+       strict model and you may elect to suppress this warning.
+*/
+-e656       
+
+//568    nonnegative quantity is never less than zero.  -- Comparisons of
+-e568
+
+//628    no argument information provided for function 'Symbol' (Location)
+-e628
+
+/*1053 An overloaded
+       function name had two parameter lists that were so close that
+       discrimination between them would be difficult and error prone
+*/
+-e1053
+
+//suppress (Warning -- Constant value Boolean) for the macro M_Assert, M_Assert
+//-emacro(506, ssz_assert)
+
+//suppress STM32's interrupt handle
+-esym(714,*IRQHandler)
+-esym(765,*IRQHandler)
+
+//suppress input/output function
+-esym(714, __read,__write)
+-esym(765, __read,__write)

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    @{src_all_dir_for_filter:src_tree}
+  </ItemGroup>
+  <ItemGroup>
+    @{src_all_imp_file_for_filter:src_tree}
+  </ItemGroup>
+  <ItemGroup>
+    @{src_all_head_file_for_filter:src_tree}
+  </ItemGroup>
+</Project>

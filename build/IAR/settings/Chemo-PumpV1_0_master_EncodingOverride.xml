@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<userOverrides>
+  <override>
+    <path>D:\chemo_pump\Src\MasterMcu\lib\ssz_ui\source\view\ui_view.cpp</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>D:\chemo_pump\Src\MasterMcu\source\app\app_monitor_motor.c</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>D:\chemo_pump\Src\MasterMcu\source\app\app_monitor_system.c</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>D:\chemo_pump\Src\MasterMcu\source\app\app_startup_and_post.c</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>D:\chemo_pump\Src\MasterMcu\source\middleware\alarm.c</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>D:\chemo_pump\Src\MasterMcu\source\middleware\mid_adc.c</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>D:\chemo_pump\Src\MasterMcu\source\middleware\mid_adc.h</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>D:\chemo_pump\Src\MasterMcu\source\middleware\pill_box_install_detect.c</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>D:\chemo_pump\Src\MasterMcu\source\middleware\pressure_bubble_sensor.c</path>
+    <encoding>System</encoding>
+  </override>
+  <override>
+    <path>D:\chemo_pump\Src\MasterMcu\source\middleware\sys_power.c</path>
+    <encoding>System</encoding>
+  </override>
+</userOverrides>
+
+

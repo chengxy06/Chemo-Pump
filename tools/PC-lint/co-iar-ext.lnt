@@ -1,0 +1,76 @@
+//co-iar-ext.lnt
+//Extend Compiler Options for IAR C
+//co-iar.lnt is supply by PC-lint, but it is not enough
+//so I define this for lint ok		
+
+
+//suppress some warning of iar's lib
+-elib(14) //allow Symbol 'Symbol' defined many time
+-elib(451) //Header file 'FileName' repeatedly included but does not have standard include guard
+-elib(1087) //declaration incompatible
+
+//add iar's compiler's key word
++rw(__nounwind,__intrinsic,__noreturn,__ramfunc,__weak) 
+
+//enable #pragma once
++pragma(once,once)
+
+//define IAR version ID
+-d__TID__=0x4F00   //may need to be changed depending upon chip
+
+//add iar's lib's macro 
+-d__constrange()=
+-d__IAR_SYSTEMS_ICC__=8 
+-d__FLOAT_SIZE__=4
+-d__DOUBLE_SIZE__=8
+-d__LONG_DOUBLE_SIZE__=8
+-d__INT_SIZE__=4
+-d__WCHAR_T_TYPE__=wchar_t
+-d__PTRDIFF_T_TYPE__=int
+-d__SIZE_T_TYPE__=int
+-d__INT_LEAST8_T_TYPE__=char
+-d"__UINT_LEAST8_T_TYPE__=unsigned char"
+-d__INT_LEAST16_T_TYPE__=short
+-d"__UINT_LEAST16_T_TYPE__=unsigned short"
+-d__INT_LEAST32_T_TYPE__=int
+-d"__UINT_LEAST32_T_TYPE__=unsigned int"
+-d__INT_LEAST64_T_TYPE__=int
+-d"__UINT_LEAST64_T_TYPE__=unsigned int"
+-d__INT_FAST8_T_TYPE__=char
+-d"__UINT_FAST8_T_TYPE__=unsigned char"
+-d__INT_FAST16_T_TYPE__=short
+-d"__UINT_FAST16_T_TYPE__=unsigned short"
+-d__INT_FAST32_T_TYPE__=int
+-d"__UINT_FAST32_T_TYPE__=unsigned int"
+-d__INT_FAST64_T_TYPE__=int
+-d"__UINT_FAST64_T_TYPE__=unsigned int"
+-d__INTMAX_T_TYPE__=int
+-d"__UINTMAX_T_TYPE__=unsigned int"
+-d"__INTPTR_T_TYPE__=int*"
+-d"__UINTPTR_T_TYPE__=unsigned int*"
+-d"__INT8_T_TYPE__=char"
+-d"__UINT8_T_TYPE__=unsigned char"
+-d"__INT16_T_TYPE__=short"
+-d"__UINT16_T_TYPE__=unsigned short"
+-d"__INT32_T_TYPE__=int"
+-d"__UINT32_T_TYPE__=unsigned int"
+-d"__INT64_T_TYPE__=long"
+-d"__UINT64_T_TYPE__=unsigned long"
+-d__DATA_PTR_MEMORY_LIST1__()=
+-d"_Pragma()="
+-d"__SHORT_SIZE__=2"
+-d__packed=
+-d__root=
+-d__data20=
+-d__interrupt=
+-d__intrinsic=
+-d__JMP_BUF_ELEMENT_TYPE__=char
+-d__ramfunc=
+-d__SIGNED_INT_MAX__=0x7FFFFFFF
+-d__INT32_T_MAX__=0x7FFFFFFF
+-d__ARRAY_OPERATORS
+-d_NO_DEFINITIONS_IN_HEADER_FILES
+//set assert funtion as exit
+-function( exit, __aeabi_assert )
+
+

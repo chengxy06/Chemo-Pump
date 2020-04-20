@@ -1,0 +1,1322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="config">
+    </Filter>
+    <Filter Include="source">
+    </Filter>
+    <Filter Include="source\app">
+    </Filter>
+    <Filter Include="source\app\screens">
+    </Filter>
+    <Filter Include="source\common">
+    </Filter>
+    <Filter Include="source\driver">
+    </Filter>
+    <Filter Include="source\middleware">
+    </Filter>
+    <Filter Include="source\middleware\kernel">
+    </Filter>
+    <Filter Include="source\ui_common">
+    </Filter>
+    <Filter Include="source\ui_common\resource">
+    </Filter>
+    <Filter Include="source\ui_common\resource\font">
+    </Filter>
+    <Filter Include="source\ui_common\resource\image">
+    </Filter>
+    <Filter Include="source\ui_common\widget">
+    </Filter>
+    <Filter Include="test">
+    </Filter>
+    <Filter Include="ssz_micro_sys">
+    </Filter>
+    <Filter Include="ssz_micro_sys\bsp">
+    </Filter>
+    <Filter Include="ssz_micro_sys\bsp\simulator">
+    </Filter>
+    <Filter Include="ssz_micro_sys\bsp\stm32_hal">
+    </Filter>
+    <Filter Include="ssz_micro_sys\include">
+    </Filter>
+    <Filter Include="ssz_micro_sys\source">
+    </Filter>
+    <Filter Include="ssz_ui">
+    </Filter>
+    <Filter Include="ssz_ui\include">
+    </Filter>
+    <Filter Include="ssz_ui\include\view">
+    </Filter>
+    <Filter Include="ssz_ui\include\view\widget">
+    </Filter>
+    <Filter Include="ssz_ui\source">
+    </Filter>
+    <Filter Include="ssz_ui\source\view">
+    </Filter>
+    <Filter Include="ssz_ui\source\view\widget">
+    </Filter>
+    <Filter Include="bsp_simulator">
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\config\clock.c" >
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\config\config.c" >
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\config\read.c" >
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\config\simple_alloc_config.cpp" >
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\config\ssz_config.cpp" >
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\config\ssz_ui_config.c" >
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\config\ssz_ui_view_config.cpp" >
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\config\write.c" >
+      <Filter>config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_alternative_popup.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_history_log.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_home.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_main_menu.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_operation_log.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_popup.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_alarm.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_auto_clear_air.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_change_oled_brightness.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_change_password.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_change_voice_volume.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_manual_clear_air.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_date.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_infusion_duration.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_infusion_speed.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_max_clean_tube_dose.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_peek_mode_duration.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_peek_mode_speed.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_time.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_total_dose.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_year.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_scr_task_confirm.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_select_popup.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\app_set_menu.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_battery_calibration.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_clean_tube.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_factory_mode.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_layout.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_new_pressure_calibration.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_password_popup.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_precision_calibration.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_precision_factor.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_pressure_calibration.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_pressure_threshold.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_set_clean_tube_dose.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_sleep.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_tip_popup.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\screens\scr_unlock_tip.cpp" >
+      <Filter>source\app\screens</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_alarm_event_handle.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_check_last_infuse.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_cmd.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_common.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_delivery.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_infusion_event_handle.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_infusion_monitor.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_key_event_handle.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_mcu_comm.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_mcu_monitor.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_motor_monitor.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_msg_handle.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_scr_event_handle.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_sleep.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_startup_and_post.c" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\app\app_system_monitor.cpp" >
+      <Filter>source\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\common\common.c" >
+      <Filter>source\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\common\dev_def.c" >
+      <Filter>source\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver\drv_com.c" >
+      <Filter>source\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver\drv_infusion_motor.c" >
+      <Filter>source\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver\drv_interrupt.c" >
+      <Filter>source\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver\drv_isd2360.c" >
+      <Filter>source\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver\drv_key.c" >
+      <Filter>source\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver\drv_lowpower.c" >
+      <Filter>source\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver\drv_oled.c" >
+      <Filter>source\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver\drv_rtc.c" >
+      <Filter>source\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver\drv_sst25_flash.c" >
+      <Filter>source\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\driver\drv_stf_motor.c" >
+      <Filter>source\driver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\kernel\cpu_usage.c" >
+      <Filter>source\middleware\kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\kernel\dtimer.c" >
+      <Filter>source\middleware\kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\kernel\event.c" >
+      <Filter>source\middleware\kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\kernel\msg.c" >
+      <Filter>source\middleware\kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\kernel\stop_watch.c" >
+      <Filter>source\middleware\kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\kernel\timer.c" >
+      <Filter>source\middleware\kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\alarm.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\alarm_play.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\com.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\data.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\display.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\infusion_motor.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\key.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\led.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\mid_adc.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\mid_common.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\mid_rtc.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\param.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\pill_box_install_detect.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\pressure_bubble_sensor.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\record_log.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\record_log_text.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\simple_alloc.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\sys_power.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\three_valve_motor.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\vibrater_motor.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\middleware\voice.c" >
+      <Filter>source\middleware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\font\dengxian_regular_14.c" >
+      <Filter>source\ui_common\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\font\heiti_regular_60.c" >
+      <Filter>source\ui_common\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\font\heiti_regular_88.c" >
+      <Filter>source\ui_common\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\AC.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_AC.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_empty.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_full.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_no.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_one.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_three.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_two.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\error.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\exhaust.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\exhaust_pause.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\exhaust_run.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\flush_max_dose_selected.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\flush_max_dose_unselected.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\history_log.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\info_select.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\info_unselect.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\infusion_pause.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\infusion_run.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\infusion_stop.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\left_arrow.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\lock.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\logo.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\mode_selected.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\mode_unselected.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\mute.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\mute_small.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\new_task.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\peak_set_select.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\peak_set_unselect.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\right_arrow.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\selected_pointer.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\select_1.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\select_2.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\set_arrow.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\sound_pause.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\stop_infusion.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\system_setting.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\time_select.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\time_unselect.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\unselected_pointer.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\warning.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image\warning_common.c" >
+      <Filter>source\ui_common\resource\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\font_data.c" >
+      <Filter>source\ui_common\resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\image_data.c" >
+      <Filter>source\ui_common\resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\resource\string_data.c" >
+      <Filter>source\ui_common\resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\widget\ui_list_pos_indicator.cpp" >
+      <Filter>source\ui_common\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\widget\ui_statusbar.cpp" >
+      <Filter>source\ui_common\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\screen.cpp" >
+      <Filter>source\ui_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\ui_common\ui_common.cpp" >
+      <Filter>source\ui_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\do_before_main_loop.cpp" >
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\init.cpp" >
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\main_run.c" >
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\run_test_after_main.cpp" >
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\version.c" >
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\greatest.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\run_all_test_suite.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\run_test.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_app_sleep.cpp" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_data.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_drv_lowpower.cpp" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_drv_oled.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_drv_rtc.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_drv_sst25_flash.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_hardware_ljl.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_record_log.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_ssz_algorithm.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_ssz_str_utility.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_ssz_time.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_ssz_time_utility.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_ui.c" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\test_ui_view.cpp" >
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\bsp\simulator\ssz_simulator_bsp.c" >
+      <Filter>ssz_micro_sys\bsp\simulator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\bsp\stm32_hal\ssz_stm32_hal_bsp.c" >
+      <Filter>ssz_micro_sys\bsp\stm32_hal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_algorithm.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_block_file.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_common.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_deque.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_file.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_gpio.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_i2c.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_list.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_locale.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_map.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_nvram.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_precision_tick_time.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_queue.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_record.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_safe_queue.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_sim_i2c.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_spi.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_stack.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_stop_watch.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_str_utility.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_tick_time.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_time.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_timer.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_time_utility.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_uart.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_utility.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_vector.c" >
+      <Filter>ssz_micro_sys\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_draw_base.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_dynamic_list.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_image.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_image_list.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_lable.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_list_base.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_normal_list_base.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_number_edit.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_page_control.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_progress_bar.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_text_base.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_text_list.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_window.cpp" >
+      <Filter>ssz_ui\source\view\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\ui_view.cpp" >
+      <Filter>ssz_ui\source\view</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\ui_disp_text.c" >
+      <Filter>ssz_ui\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\ui_draw.c" >
+      <Filter>ssz_ui\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\ui_draw_img.c" >
+      <Filter>ssz_ui\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\lib\ssz_ui\source\ui_utility.c" >
+      <Filter>ssz_ui\source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\bsp\bsp_simulator\main.c" >
+      <Filter>bsp_simulator</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\config\alarm_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\com_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\data_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\event_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\key_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\msg_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\record_log_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\screen_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\simple_alloc_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\ssz_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\ssz_ui_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\ssz_ui_view_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\config\timer_config.h" >
+      <Filter>config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_alternative_popup.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_history_log.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_home.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_main_menu.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_operation_log.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_popup.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_alarm.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_auto_clear_air.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_change_oled_brightness.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_change_password.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_change_voice_volume.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_manual_clear_air.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_date.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_infusion_duration.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_infusion_speed.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_max_clean_tube_dose.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_peek_mode_duration.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_peek_mode_speed.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_time.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_total_dose.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_year.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_scr_task_confirm.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_select_popup.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\app_set_menu.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_battery_calibration.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_clean_tube.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_factory_mode.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_layout.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_new_pressure_calibration.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_password_popup.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_precision_calibration.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_precision_factor.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_pressure_calibration.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_pressure_threshold.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_set_clean_tube_dose.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_sleep.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_tip_popup.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\screens\scr_unlock_tip.h" >
+      <Filter>source\app\screens</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_alarm_event_handle.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_check_last_infuse.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_cmd.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_common.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_delivery.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_infusion_event_handle.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_infusion_monitor.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_key_event_handle.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_mcu_comm.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_mcu_monitor.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_motor_monitor.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_msg_handle.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_scr_event_handle.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_sleep.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_startup_and_post.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\app\app_system_monitor.h" >
+      <Filter>source\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\common\common.h" >
+      <Filter>source\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\common\dev_def.h" >
+      <Filter>source\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver\drv_com.h" >
+      <Filter>source\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver\drv_infusion_motor.h" >
+      <Filter>source\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver\drv_interrupt.h" >
+      <Filter>source\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver\drv_isd2360.h" >
+      <Filter>source\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver\drv_key.h" >
+      <Filter>source\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver\drv_lowpower.h" >
+      <Filter>source\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver\drv_oled.h" >
+      <Filter>source\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver\drv_rtc.h" >
+      <Filter>source\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver\drv_sst25_flash.h" >
+      <Filter>source\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\driver\drv_stf_motor.h" >
+      <Filter>source\driver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\kernel\cpu_usage.h" >
+      <Filter>source\middleware\kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\kernel\dtimer.h" >
+      <Filter>source\middleware\kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\kernel\event.h" >
+      <Filter>source\middleware\kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\kernel\msg.h" >
+      <Filter>source\middleware\kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\kernel\stop_watch.h" >
+      <Filter>source\middleware\kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\kernel\timer.h" >
+      <Filter>source\middleware\kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\alarm.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\alarm_play.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\com.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\data.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\display.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\infusion_motor.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\key.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\led.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\mid_adc.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\mid_common.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\mid_rtc.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\param.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\param_internal.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\pill_box_install_detect.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\pressure_bubble_sensor.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\record_log.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\record_log_text.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\simple_alloc.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\sys_power.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\three_valve_motor.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\vibrater_motor.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\middleware\voice.h" >
+      <Filter>source\middleware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\resource\constant_byte_define.h" >
+      <Filter>source\ui_common\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\resource\font_data.h" >
+      <Filter>source\ui_common\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\resource\generated_font_data.h" >
+      <Filter>source\ui_common\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\resource\generated_image_data.h" >
+      <Filter>source\ui_common\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\resource\generated_image_id.h" >
+      <Filter>source\ui_common\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\resource\generated_string_data.h" >
+      <Filter>source\ui_common\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\resource\generated_string_id.h" >
+      <Filter>source\ui_common\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\resource\image_data.h" >
+      <Filter>source\ui_common\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\resource\string_data.h" >
+      <Filter>source\ui_common\resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\widget\ui_list_pos_indicator.h" >
+      <Filter>source\ui_common\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\widget\ui_statusbar.h" >
+      <Filter>source\ui_common\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\screen.h" >
+      <Filter>source\ui_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\ui_common.h" >
+      <Filter>source\ui_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\ui_define.h" >
+      <Filter>source\ui_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\ui_common\ui_theme_define.h" >
+      <Filter>source\ui_common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\do_before_main_loop.h" >
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\init.h" >
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\main_run.h" >
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\version.h" >
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\app_sleep_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\data_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\drv_lowpower_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\drv_oled_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\drv_rtc_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\drv_sst25_flash_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\greatest.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\greatest_config.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\hardware_ljl_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\record_log_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\ssz_algorithm_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\ssz_str_utility_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\ssz_time_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\ssz_time_utility_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\ui_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\test\ui_view_suite_def.h" >
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\bsp\simulator\ssz_simulator_dev_def.h" >
+      <Filter>ssz_micro_sys\bsp\simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\bsp\simulator\ssz_simulator_gpio_bsp.h" >
+      <Filter>ssz_micro_sys\bsp\simulator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\bsp\stm32_hal\ssz_stm32_hal_gpio_bsp.h" >
+      <Filter>ssz_micro_sys\bsp\stm32_hal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_algorithm.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_block_file.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_common.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_def.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_deque.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_errorcode.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_file.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_gpio.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_i2c.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_io.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_list.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_locale.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_map.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_nvram.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_precision_tick_time.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_queue.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_record.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_safe_queue.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_sim_i2c.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_spi.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_stack.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_stop_watch.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_str_utility.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_tick_time.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_time.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_timer.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_time_utility.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_uart.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_utility.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_vector.h" >
+      <Filter>ssz_micro_sys\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_draw_base.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_dynamic_list.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_edit_base.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_image.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_image_list.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_lable.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_list_base.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_normal_list_base.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_number_edit.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_page_control.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_progress_bar.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_text_base.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_text_list.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_window.h" >
+      <Filter>ssz_ui\include\view\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\ui_view.h" >
+      <Filter>ssz_ui\include\view</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\ui.h" >
+      <Filter>ssz_ui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\include\ui_utility.h" >
+      <Filter>ssz_ui\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\lib\ssz_ui\source\ui_internal.h" >
+      <Filter>ssz_ui\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\bsp\bsp_simulator\machine_sim_dev_map.h" >
+      <Filter>bsp_simulator</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

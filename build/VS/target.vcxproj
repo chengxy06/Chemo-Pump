@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Test|Win32">
+      <Configuration>Test</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Test|x64">
+      <Configuration>Test</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AFC671BC-CA5A-41C0-8B03-05F74A16A249}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/wd4819 /D"_CRT_SECURE_NO_WARNINGS" /D "_SCL_SECURE_NO_WARNINGS" %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\config;..\..\source;..\..\source\common;..\..\source\ui_common;..\..\source\ui_common\resource;..\..\source\ui_common\widget;..\..\source\app;..\..\source\app\screens;..\..\source\middleware;..\..\source\middleware\kernel;..\..\source\driver;..\..\lib\ssz_micro_sys\bsp;..\..\lib\ssz_micro_sys\include;..\..\lib\ssz_ui\include;..\..\lib\ssz_ui\source;..\..\lib\ssz_ui\include\view;..\..\lib\ssz_ui\include\view\widget;..\..\bsp\bsp_machine\Inc;..\..\bsp\bsp_machine\Drivers\CMSIS\Include;..\..\bsp\bsp_machine\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\..\bsp\bsp_machine\Drivers\STM32L1xx_HAL_Driver\Inc;..\..\simulator\driver\cpu_interface;..\..\simulator\simulator\include;..\..\lib\ssz_micro_sys\bsp\simulator;..\..\bsp\bsp_simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STM32L152xC;USE_HAL_DRIVER;DEBUG;USE_FULL_ASSERT;SSZ_TARGET_SIMULATOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories></AdditionalLibraryDirectories>
+      <ImportLibrary />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/wd4819 /D"_CRT_SECURE_NO_WARNINGS" /D "_SCL_SECURE_NO_WARNINGS" %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\config;..\..\source;..\..\source\common;..\..\source\ui_common;..\..\source\ui_common\resource;..\..\source\ui_common\widget;..\..\source\app;..\..\source\app\screens;..\..\source\middleware;..\..\source\middleware\kernel;..\..\source\driver;..\..\lib\ssz_micro_sys\bsp;..\..\lib\ssz_micro_sys\include;..\..\lib\ssz_ui\include;..\..\lib\ssz_ui\source;..\..\lib\ssz_ui\include\view;..\..\lib\ssz_ui\include\view\widget;..\..\bsp\bsp_machine\Inc;..\..\bsp\bsp_machine\Drivers\CMSIS\Include;..\..\bsp\bsp_machine\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\..\bsp\bsp_machine\Drivers\STM32L1xx_HAL_Driver\Inc;..\..\simulator\driver\cpu_interface;..\..\simulator\simulator\include;..\..\lib\ssz_micro_sys\bsp\simulator;..\..\bsp\bsp_simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STM32L152xC;USE_HAL_DRIVER;DEBUG;USE_FULL_ASSERT;SSZ_TARGET_SIMULATOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories></AdditionalLibraryDirectories>
+      <ImportLibrary />
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/wd4819 /D"_CRT_SECURE_NO_WARNINGS" /D "_SCL_SECURE_NO_WARNINGS" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..\..\config;..\..\source;..\..\source\common;..\..\source\ui_common;..\..\source\ui_common\resource;..\..\source\ui_common\widget;..\..\source\app;..\..\source\app\screens;..\..\source\middleware;..\..\source\middleware\kernel;..\..\source\driver;..\..\lib\ssz_micro_sys\bsp;..\..\lib\ssz_micro_sys\include;..\..\lib\ssz_ui\include;..\..\lib\ssz_ui\source;..\..\lib\ssz_ui\include\view;..\..\lib\ssz_ui\include\view\widget;..\..\bsp\bsp_machine\Inc;..\..\bsp\bsp_machine\Drivers\CMSIS\Include;..\..\bsp\bsp_machine\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\..\bsp\bsp_machine\Drivers\STM32L1xx_HAL_Driver\Inc;..\..\simulator\driver\cpu_interface;..\..\simulator\simulator\include;..\..\lib\ssz_micro_sys\bsp\simulator;..\..\bsp\bsp_simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STM32L152xC;USE_HAL_DRIVER;NDEBUG;SSZ_TARGET_SIMULATOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories></AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/wd4819 /D"_CRT_SECURE_NO_WARNINGS" /D "_SCL_SECURE_NO_WARNINGS" %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>..\..\config;..\..\source;..\..\source\common;..\..\source\ui_common;..\..\source\ui_common\resource;..\..\source\ui_common\widget;..\..\source\app;..\..\source\app\screens;..\..\source\middleware;..\..\source\middleware\kernel;..\..\source\driver;..\..\lib\ssz_micro_sys\bsp;..\..\lib\ssz_micro_sys\include;..\..\lib\ssz_ui\include;..\..\lib\ssz_ui\source;..\..\lib\ssz_ui\include\view;..\..\lib\ssz_ui\include\view\widget;..\..\bsp\bsp_machine\Inc;..\..\bsp\bsp_machine\Drivers\CMSIS\Include;..\..\bsp\bsp_machine\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\..\bsp\bsp_machine\Drivers\STM32L1xx_HAL_Driver\Inc;..\..\simulator\driver\cpu_interface;..\..\simulator\simulator\include;..\..\lib\ssz_micro_sys\bsp\simulator;..\..\bsp\bsp_simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STM32L152xC;USE_HAL_DRIVER;NDEBUG;SSZ_TARGET_SIMULATOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX64</TargetMachine>
+      <AdditionalLibraryDirectories></AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/wd4819 /D"_CRT_SECURE_NO_WARNINGS" /D "_SCL_SECURE_NO_WARNINGS" %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\config;..\..\source;..\..\source\common;..\..\source\ui_common;..\..\source\ui_common\resource;..\..\source\ui_common\widget;..\..\source\app;..\..\source\app\screens;..\..\source\middleware;..\..\source\middleware\kernel;..\..\source\driver;..\..\lib\ssz_micro_sys\bsp;..\..\lib\ssz_micro_sys\include;..\..\lib\ssz_ui\include;..\..\lib\ssz_ui\source;..\..\lib\ssz_ui\include\view;..\..\lib\ssz_ui\include\view\widget;..\..\bsp\bsp_machine\Inc;..\..\bsp\bsp_machine\Drivers\CMSIS\Include;..\..\bsp\bsp_machine\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\..\bsp\bsp_machine\Drivers\STM32L1xx_HAL_Driver\Inc;..\..\simulator\driver\cpu_interface;..\..\simulator\simulator\include;..\..\lib\ssz_micro_sys\bsp\simulator;..\..\bsp\bsp_simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STM32L152xC;USE_HAL_DRIVER;DEBUG;USE_FULL_ASSERT;TEST;SSZ_TARGET_SIMULATOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories></AdditionalLibraryDirectories>
+      <ImportLibrary />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/wd4819 /D"_CRT_SECURE_NO_WARNINGS" /D "_SCL_SECURE_NO_WARNINGS" %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\config;..\..\source;..\..\source\common;..\..\source\ui_common;..\..\source\ui_common\resource;..\..\source\ui_common\widget;..\..\source\app;..\..\source\app\screens;..\..\source\middleware;..\..\source\middleware\kernel;..\..\source\driver;..\..\lib\ssz_micro_sys\bsp;..\..\lib\ssz_micro_sys\include;..\..\lib\ssz_ui\include;..\..\lib\ssz_ui\source;..\..\lib\ssz_ui\include\view;..\..\lib\ssz_ui\include\view\widget;..\..\bsp\bsp_machine\Inc;..\..\bsp\bsp_machine\Drivers\CMSIS\Include;..\..\bsp\bsp_machine\Drivers\CMSIS\Device\ST\STM32L1xx\Include;..\..\bsp\bsp_machine\Drivers\STM32L1xx_HAL_Driver\Inc;..\..\simulator\driver\cpu_interface;..\..\simulator\simulator\include;..\..\lib\ssz_micro_sys\bsp\simulator;..\..\bsp\bsp_simulator;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>STM32L152xC;USE_HAL_DRIVER;DEBUG;USE_FULL_ASSERT;TEST;SSZ_TARGET_SIMULATOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories></AdditionalLibraryDirectories>
+      <ImportLibrary />
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\config\clock.c" />
+    <ClCompile Include="..\..\config\config.c" />
+    <ClCompile Include="..\..\config\read.c" />
+    <ClCompile Include="..\..\config\simple_alloc_config.cpp" />
+    <ClCompile Include="..\..\config\ssz_config.cpp" />
+    <ClCompile Include="..\..\config\ssz_ui_config.c" />
+    <ClCompile Include="..\..\config\ssz_ui_view_config.cpp" />
+    <ClCompile Include="..\..\config\write.c" />
+    <ClCompile Include="..\..\source\app\screens\app_alternative_popup.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_history_log.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_home.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_main_menu.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_operation_log.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_popup.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_alarm.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_auto_clear_air.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_change_oled_brightness.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_change_password.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_change_voice_volume.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_manual_clear_air.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_date.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_infusion_duration.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_infusion_speed.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_max_clean_tube_dose.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_peek_mode_duration.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_peek_mode_speed.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_time.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_total_dose.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_set_year.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_scr_task_confirm.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_select_popup.cpp" />
+    <ClCompile Include="..\..\source\app\screens\app_set_menu.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_battery_calibration.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_clean_tube.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_factory_mode.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_layout.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_new_pressure_calibration.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_password_popup.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_precision_calibration.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_precision_factor.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_pressure_calibration.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_pressure_threshold.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_set_clean_tube_dose.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_sleep.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_tip_popup.cpp" />
+    <ClCompile Include="..\..\source\app\screens\scr_unlock_tip.cpp" />
+    <ClCompile Include="..\..\source\app\app_alarm_event_handle.cpp" />
+    <ClCompile Include="..\..\source\app\app_check_last_infuse.cpp" />
+    <ClCompile Include="..\..\source\app\app_cmd.cpp" />
+    <ClCompile Include="..\..\source\app\app_common.cpp" />
+    <ClCompile Include="..\..\source\app\app_delivery.cpp" />
+    <ClCompile Include="..\..\source\app\app_infusion_event_handle.cpp" />
+    <ClCompile Include="..\..\source\app\app_infusion_monitor.cpp" />
+    <ClCompile Include="..\..\source\app\app_key_event_handle.cpp" />
+    <ClCompile Include="..\..\source\app\app_mcu_comm.cpp" />
+    <ClCompile Include="..\..\source\app\app_mcu_monitor.cpp" />
+    <ClCompile Include="..\..\source\app\app_motor_monitor.cpp" />
+    <ClCompile Include="..\..\source\app\app_msg_handle.cpp" />
+    <ClCompile Include="..\..\source\app\app_scr_event_handle.cpp" />
+    <ClCompile Include="..\..\source\app\app_sleep.cpp" />
+    <ClCompile Include="..\..\source\app\app_startup_and_post.c" />
+    <ClCompile Include="..\..\source\app\app_system_monitor.cpp" />
+    <ClCompile Include="..\..\source\common\common.c" />
+    <ClCompile Include="..\..\source\common\dev_def.c" />
+    <ClCompile Include="..\..\source\driver\drv_com.c" />
+    <ClCompile Include="..\..\source\driver\drv_infusion_motor.c" />
+    <ClCompile Include="..\..\source\driver\drv_interrupt.c" />
+    <ClCompile Include="..\..\source\driver\drv_isd2360.c" />
+    <ClCompile Include="..\..\source\driver\drv_key.c" />
+    <ClCompile Include="..\..\source\driver\drv_lowpower.c" />
+    <ClCompile Include="..\..\source\driver\drv_oled.c" />
+    <ClCompile Include="..\..\source\driver\drv_rtc.c" />
+    <ClCompile Include="..\..\source\driver\drv_sst25_flash.c" />
+    <ClCompile Include="..\..\source\driver\drv_stf_motor.c" />
+    <ClCompile Include="..\..\source\middleware\kernel\cpu_usage.c" />
+    <ClCompile Include="..\..\source\middleware\kernel\dtimer.c" />
+    <ClCompile Include="..\..\source\middleware\kernel\event.c" />
+    <ClCompile Include="..\..\source\middleware\kernel\msg.c" />
+    <ClCompile Include="..\..\source\middleware\kernel\stop_watch.c" />
+    <ClCompile Include="..\..\source\middleware\kernel\timer.c" />
+    <ClCompile Include="..\..\source\middleware\alarm.c" />
+    <ClCompile Include="..\..\source\middleware\alarm_play.c" />
+    <ClCompile Include="..\..\source\middleware\com.c" />
+    <ClCompile Include="..\..\source\middleware\data.c" />
+    <ClCompile Include="..\..\source\middleware\display.c" />
+    <ClCompile Include="..\..\source\middleware\infusion_motor.c" />
+    <ClCompile Include="..\..\source\middleware\key.c" />
+    <ClCompile Include="..\..\source\middleware\led.c" />
+    <ClCompile Include="..\..\source\middleware\mid_adc.c" />
+    <ClCompile Include="..\..\source\middleware\mid_common.c" />
+    <ClCompile Include="..\..\source\middleware\mid_rtc.c" />
+    <ClCompile Include="..\..\source\middleware\param.c" />
+    <ClCompile Include="..\..\source\middleware\pill_box_install_detect.c" />
+    <ClCompile Include="..\..\source\middleware\pressure_bubble_sensor.c" />
+    <ClCompile Include="..\..\source\middleware\record_log.c" />
+    <ClCompile Include="..\..\source\middleware\record_log_text.c" />
+    <ClCompile Include="..\..\source\middleware\simple_alloc.c" />
+    <ClCompile Include="..\..\source\middleware\sys_power.c" />
+    <ClCompile Include="..\..\source\middleware\three_valve_motor.c" />
+    <ClCompile Include="..\..\source\middleware\vibrater_motor.c" />
+    <ClCompile Include="..\..\source\middleware\voice.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\font\dengxian_regular_14.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\font\heiti_regular_60.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\font\heiti_regular_88.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\AC.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_AC.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_empty.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_full.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_no.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_one.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_three.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\battery_two.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\error.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\exhaust.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\exhaust_pause.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\exhaust_run.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\flush_max_dose_selected.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\flush_max_dose_unselected.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\history_log.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\info_select.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\info_unselect.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\infusion_pause.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\infusion_run.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\infusion_stop.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\left_arrow.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\lock.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\logo.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\mode_selected.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\mode_unselected.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\mute.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\mute_small.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\new_task.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\peak_set_select.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\peak_set_unselect.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\right_arrow.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\selected_pointer.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\select_1.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\select_2.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\set_arrow.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\sound_pause.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\stop_infusion.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\system_setting.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\time_select.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\time_unselect.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\unselected_pointer.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\warning.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image\warning_common.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\font_data.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\image_data.c" />
+    <ClCompile Include="..\..\source\ui_common\resource\string_data.c" />
+    <ClCompile Include="..\..\source\ui_common\widget\ui_list_pos_indicator.cpp" />
+    <ClCompile Include="..\..\source\ui_common\widget\ui_statusbar.cpp" />
+    <ClCompile Include="..\..\source\ui_common\screen.cpp" />
+    <ClCompile Include="..\..\source\ui_common\ui_common.cpp" />
+    <ClCompile Include="..\..\source\do_before_main_loop.cpp" />
+    <ClCompile Include="..\..\source\init.cpp" />
+    <ClCompile Include="..\..\source\main_run.c" />
+    <ClCompile Include="..\..\source\run_test_after_main.cpp" />
+    <ClCompile Include="..\..\source\version.c" />
+    <ClCompile Include="..\..\test\greatest.c" />
+    <ClCompile Include="..\..\test\run_all_test_suite.c" />
+    <ClCompile Include="..\..\test\run_test.c" />
+    <ClCompile Include="..\..\test\test_app_sleep.cpp" />
+    <ClCompile Include="..\..\test\test_data.c" />
+    <ClCompile Include="..\..\test\test_drv_lowpower.cpp" />
+    <ClCompile Include="..\..\test\test_drv_oled.c" />
+    <ClCompile Include="..\..\test\test_drv_rtc.c" />
+    <ClCompile Include="..\..\test\test_drv_sst25_flash.c" />
+    <ClCompile Include="..\..\test\test_hardware_ljl.c" />
+    <ClCompile Include="..\..\test\test_record_log.c" />
+    <ClCompile Include="..\..\test\test_ssz_algorithm.c" />
+    <ClCompile Include="..\..\test\test_ssz_str_utility.c" />
+    <ClCompile Include="..\..\test\test_ssz_time.c" />
+    <ClCompile Include="..\..\test\test_ssz_time_utility.c" />
+    <ClCompile Include="..\..\test\test_ui.c" />
+    <ClCompile Include="..\..\test\test_ui_view.cpp" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\bsp\simulator\ssz_simulator_bsp.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\bsp\stm32_hal\ssz_stm32_hal_bsp.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_algorithm.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_block_file.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_common.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_deque.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_file.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_gpio.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_i2c.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_list.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_locale.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_map.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_nvram.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_precision_tick_time.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_queue.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_record.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_safe_queue.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_sim_i2c.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_spi.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_stack.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_stop_watch.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_str_utility.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_tick_time.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_time.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_timer.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_time_utility.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_uart.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_utility.c" />
+    <ClCompile Include="..\..\lib\ssz_micro_sys\source\ssz_vector.c" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_draw_base.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_dynamic_list.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_image.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_image_list.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_lable.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_list_base.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_normal_list_base.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_number_edit.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_page_control.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_progress_bar.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_text_base.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_text_list.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\widget\ui_window.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\view\ui_view.cpp" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\ui_disp_text.c" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\ui_draw.c" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\ui_draw_img.c" />
+    <ClCompile Include="..\..\lib\ssz_ui\source\ui_utility.c" />
+    <ClCompile Include="..\..\bsp\bsp_simulator\main.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\config\alarm_config.h" />
+    <ClInclude Include="..\..\config\com_config.h" />
+    <ClInclude Include="..\..\config\config.h" />
+    <ClInclude Include="..\..\config\data_config.h" />
+    <ClInclude Include="..\..\config\event_config.h" />
+    <ClInclude Include="..\..\config\key_config.h" />
+    <ClInclude Include="..\..\config\msg_config.h" />
+    <ClInclude Include="..\..\config\record_log_config.h" />
+    <ClInclude Include="..\..\config\screen_config.h" />
+    <ClInclude Include="..\..\config\simple_alloc_config.h" />
+    <ClInclude Include="..\..\config\ssz_config.h" />
+    <ClInclude Include="..\..\config\ssz_ui_config.h" />
+    <ClInclude Include="..\..\config\ssz_ui_view_config.h" />
+    <ClInclude Include="..\..\config\timer_config.h" />
+    <ClInclude Include="..\..\source\app\screens\app_alternative_popup.h" />
+    <ClInclude Include="..\..\source\app\screens\app_history_log.h" />
+    <ClInclude Include="..\..\source\app\screens\app_home.h" />
+    <ClInclude Include="..\..\source\app\screens\app_main_menu.h" />
+    <ClInclude Include="..\..\source\app\screens\app_operation_log.h" />
+    <ClInclude Include="..\..\source\app\screens\app_popup.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_alarm.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_auto_clear_air.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_change_oled_brightness.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_change_password.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_change_voice_volume.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_manual_clear_air.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_date.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_infusion_duration.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_infusion_speed.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_max_clean_tube_dose.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_peek_mode_duration.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_peek_mode_speed.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_time.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_total_dose.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_set_year.h" />
+    <ClInclude Include="..\..\source\app\screens\app_scr_task_confirm.h" />
+    <ClInclude Include="..\..\source\app\screens\app_select_popup.h" />
+    <ClInclude Include="..\..\source\app\screens\app_set_menu.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_battery_calibration.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_clean_tube.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_factory_mode.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_layout.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_new_pressure_calibration.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_password_popup.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_precision_calibration.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_precision_factor.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_pressure_calibration.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_pressure_threshold.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_set_clean_tube_dose.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_sleep.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_tip_popup.h" />
+    <ClInclude Include="..\..\source\app\screens\scr_unlock_tip.h" />
+    <ClInclude Include="..\..\source\app\app_alarm_event_handle.h" />
+    <ClInclude Include="..\..\source\app\app_check_last_infuse.h" />
+    <ClInclude Include="..\..\source\app\app_cmd.h" />
+    <ClInclude Include="..\..\source\app\app_common.h" />
+    <ClInclude Include="..\..\source\app\app_delivery.h" />
+    <ClInclude Include="..\..\source\app\app_infusion_event_handle.h" />
+    <ClInclude Include="..\..\source\app\app_infusion_monitor.h" />
+    <ClInclude Include="..\..\source\app\app_key_event_handle.h" />
+    <ClInclude Include="..\..\source\app\app_mcu_comm.h" />
+    <ClInclude Include="..\..\source\app\app_mcu_monitor.h" />
+    <ClInclude Include="..\..\source\app\app_motor_monitor.h" />
+    <ClInclude Include="..\..\source\app\app_msg_handle.h" />
+    <ClInclude Include="..\..\source\app\app_scr_event_handle.h" />
+    <ClInclude Include="..\..\source\app\app_sleep.h" />
+    <ClInclude Include="..\..\source\app\app_startup_and_post.h" />
+    <ClInclude Include="..\..\source\app\app_system_monitor.h" />
+    <ClInclude Include="..\..\source\common\common.h" />
+    <ClInclude Include="..\..\source\common\dev_def.h" />
+    <ClInclude Include="..\..\source\driver\drv_com.h" />
+    <ClInclude Include="..\..\source\driver\drv_infusion_motor.h" />
+    <ClInclude Include="..\..\source\driver\drv_interrupt.h" />
+    <ClInclude Include="..\..\source\driver\drv_isd2360.h" />
+    <ClInclude Include="..\..\source\driver\drv_key.h" />
+    <ClInclude Include="..\..\source\driver\drv_lowpower.h" />
+    <ClInclude Include="..\..\source\driver\drv_oled.h" />
+    <ClInclude Include="..\..\source\driver\drv_rtc.h" />
+    <ClInclude Include="..\..\source\driver\drv_sst25_flash.h" />
+    <ClInclude Include="..\..\source\driver\drv_stf_motor.h" />
+    <ClInclude Include="..\..\source\middleware\kernel\cpu_usage.h" />
+    <ClInclude Include="..\..\source\middleware\kernel\dtimer.h" />
+    <ClInclude Include="..\..\source\middleware\kernel\event.h" />
+    <ClInclude Include="..\..\source\middleware\kernel\msg.h" />
+    <ClInclude Include="..\..\source\middleware\kernel\stop_watch.h" />
+    <ClInclude Include="..\..\source\middleware\kernel\timer.h" />
+    <ClInclude Include="..\..\source\middleware\alarm.h" />
+    <ClInclude Include="..\..\source\middleware\alarm_play.h" />
+    <ClInclude Include="..\..\source\middleware\com.h" />
+    <ClInclude Include="..\..\source\middleware\data.h" />
+    <ClInclude Include="..\..\source\middleware\display.h" />
+    <ClInclude Include="..\..\source\middleware\infusion_motor.h" />
+    <ClInclude Include="..\..\source\middleware\key.h" />
+    <ClInclude Include="..\..\source\middleware\led.h" />
+    <ClInclude Include="..\..\source\middleware\mid_adc.h" />
+    <ClInclude Include="..\..\source\middleware\mid_common.h" />
+    <ClInclude Include="..\..\source\middleware\mid_rtc.h" />
+    <ClInclude Include="..\..\source\middleware\param.h" />
+    <ClInclude Include="..\..\source\middleware\param_internal.h" />
+    <ClInclude Include="..\..\source\middleware\pill_box_install_detect.h" />
+    <ClInclude Include="..\..\source\middleware\pressure_bubble_sensor.h" />
+    <ClInclude Include="..\..\source\middleware\record_log.h" />
+    <ClInclude Include="..\..\source\middleware\record_log_text.h" />
+    <ClInclude Include="..\..\source\middleware\simple_alloc.h" />
+    <ClInclude Include="..\..\source\middleware\sys_power.h" />
+    <ClInclude Include="..\..\source\middleware\three_valve_motor.h" />
+    <ClInclude Include="..\..\source\middleware\vibrater_motor.h" />
+    <ClInclude Include="..\..\source\middleware\voice.h" />
+    <ClInclude Include="..\..\source\ui_common\resource\constant_byte_define.h" />
+    <ClInclude Include="..\..\source\ui_common\resource\font_data.h" />
+    <ClInclude Include="..\..\source\ui_common\resource\generated_font_data.h" />
+    <ClInclude Include="..\..\source\ui_common\resource\generated_image_data.h" />
+    <ClInclude Include="..\..\source\ui_common\resource\generated_image_id.h" />
+    <ClInclude Include="..\..\source\ui_common\resource\generated_string_data.h" />
+    <ClInclude Include="..\..\source\ui_common\resource\generated_string_id.h" />
+    <ClInclude Include="..\..\source\ui_common\resource\image_data.h" />
+    <ClInclude Include="..\..\source\ui_common\resource\string_data.h" />
+    <ClInclude Include="..\..\source\ui_common\widget\ui_list_pos_indicator.h" />
+    <ClInclude Include="..\..\source\ui_common\widget\ui_statusbar.h" />
+    <ClInclude Include="..\..\source\ui_common\screen.h" />
+    <ClInclude Include="..\..\source\ui_common\ui_common.h" />
+    <ClInclude Include="..\..\source\ui_common\ui_define.h" />
+    <ClInclude Include="..\..\source\ui_common\ui_theme_define.h" />
+    <ClInclude Include="..\..\source\do_before_main_loop.h" />
+    <ClInclude Include="..\..\source\init.h" />
+    <ClInclude Include="..\..\source\main_run.h" />
+    <ClInclude Include="..\..\source\version.h" />
+    <ClInclude Include="..\..\test\app_sleep_suite_def.h" />
+    <ClInclude Include="..\..\test\data_suite_def.h" />
+    <ClInclude Include="..\..\test\drv_lowpower_suite_def.h" />
+    <ClInclude Include="..\..\test\drv_oled_suite_def.h" />
+    <ClInclude Include="..\..\test\drv_rtc_suite_def.h" />
+    <ClInclude Include="..\..\test\drv_sst25_flash_suite_def.h" />
+    <ClInclude Include="..\..\test\greatest.h" />
+    <ClInclude Include="..\..\test\greatest_config.h" />
+    <ClInclude Include="..\..\test\hardware_ljl_suite_def.h" />
+    <ClInclude Include="..\..\test\record_log_suite_def.h" />
+    <ClInclude Include="..\..\test\ssz_algorithm_suite_def.h" />
+    <ClInclude Include="..\..\test\ssz_str_utility_suite_def.h" />
+    <ClInclude Include="..\..\test\ssz_time_suite_def.h" />
+    <ClInclude Include="..\..\test\ssz_time_utility_suite_def.h" />
+    <ClInclude Include="..\..\test\ui_suite_def.h" />
+    <ClInclude Include="..\..\test\ui_view_suite_def.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\bsp\simulator\ssz_simulator_dev_def.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\bsp\simulator\ssz_simulator_gpio_bsp.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\bsp\stm32_hal\ssz_stm32_hal_gpio_bsp.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_algorithm.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_block_file.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_common.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_def.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_deque.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_errorcode.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_file.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_gpio.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_i2c.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_io.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_list.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_locale.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_map.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_nvram.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_precision_tick_time.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_queue.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_record.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_safe_queue.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_sim_i2c.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_spi.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_stack.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_stop_watch.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_str_utility.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_tick_time.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_time.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_timer.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_time_utility.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_uart.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_utility.h" />
+    <ClInclude Include="..\..\lib\ssz_micro_sys\include\ssz_vector.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_draw_base.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_dynamic_list.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_edit_base.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_image.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_image_list.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_lable.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_list_base.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_normal_list_base.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_number_edit.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_page_control.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_progress_bar.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_text_base.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_text_list.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\widget\ui_window.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\view\ui_view.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\ui.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\include\ui_utility.h" />
+    <ClInclude Include="..\..\lib\ssz_ui\source\ui_internal.h" />
+    <ClInclude Include="..\..\bsp\bsp_simulator\machine_sim_dev_map.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

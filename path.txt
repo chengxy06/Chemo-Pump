@@ -1,0 +1,2 @@
+set path=C:\Program Files\IAR Systems\Embedded Workbench 7.3\common\bin;%path%   arm
+set path=C:\Program Files\IAR Systems\Embedded Workbench 7.0\common\bin;%path%   430

@@ -1,0 +1,137 @@
+﻿  main.c
+  config.c
+  ssz_utility.c
+  app_startup_and_post.c
+  common.c
+  drv_infusion_motor.c
+..\..\source\driver\drv_infusion_motor.c(90): warning C4013: “drv_three_valve_motor_init”未定义；假设外部返回 int
+  drv_interrupt.c
+  drv_isd2360.c
+  drv_lowpower.c
+  drv_sst25_flash.c
+  drv_stf_motor.c
+  main_run.c
+  alarm.c
+  alarm_play.c
+  data.c
+  infusion_motor.c
+  cpu_usage.c
+..\..\source\middleware\kernel\cpu_usage.c(69): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+  dtimer.c
+  msg.c
+  stop_watch.c
+  正在生成代码...
+  正在编译...
+  timer.c
+  key.c
+  led.c
+  mid_adc.c
+  mid_common.c
+  mid_rtc.c
+  param.c
+..\..\source\middleware\param.c(55): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+  pressure_bubble_sensor.c
+  record_log.c
+  record_log_text.c
+  sys_power.c
+  three_valve_motor.c
+  voice.c
+  heiti_regular_60.c
+  version.c
+  正在生成代码...
+  simple_alloc_config.cpp
+  ssz_config.cpp
+  ssz_ui_view_config.cpp
+  ui_view.cpp
+  app_alarm_event_handle.cpp
+  app_check_last_infuse.cpp
+  app_cmd.cpp
+  app_common.cpp
+..\..\source\app\app_common.cpp(84): warning C4800: “int”: 将值强制为布尔值“true”或“false”(性能警告)
+..\..\source\app\app_common.cpp(278): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+..\..\source\app\app_common.cpp(279): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+  app_delivery.cpp
+..\..\source\app\app_delivery.cpp(799): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+..\..\source\app\app_delivery.cpp(802): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+..\..\source\app\app_delivery.cpp(814): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+..\..\source\app\app_delivery.cpp(816): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+..\..\source\app\app_delivery.cpp(818): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+..\..\source\app\app_delivery.cpp(822): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+..\..\source\app\app_delivery.cpp(824): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+..\..\source\app\app_delivery.cpp(829): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+..\..\source\app\app_delivery.cpp(855): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+  app_infusion_event_handle.cpp
+  app_infusion_monitor.cpp
+  app_key_event_handle.cpp
+  app_mcu_comm.cpp
+  app_mcu_monitor.cpp
+  app_motor_monitor.cpp
+  app_msg_handle.cpp
+  app_scr_event_handle.cpp
+  app_sleep.cpp
+  app_system_monitor.cpp
+  app_alternative_popup.cpp
+  正在生成代码...
+  正在编译...
+  app_history_log.cpp
+  app_home.cpp
+  app_main_menu.cpp
+  app_operation_log.cpp
+  app_popup.cpp
+  app_scr_alarm.cpp
+  app_scr_auto_clear_air.cpp
+  app_scr_change_oled_brightness.cpp
+  app_scr_change_password.cpp
+  app_scr_change_voice_volume.cpp
+  app_scr_manual_clear_air.cpp
+  app_scr_set_date.cpp
+  app_scr_set_infusion_duration.cpp
+..\..\source\app\screens\app_scr_set_infusion_duration.cpp(78): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+..\..\source\app\screens\app_scr_set_infusion_duration.cpp(97): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+..\..\source\app\screens\app_scr_set_infusion_duration.cpp(126): warning C4800: “int32_t”: 将值强制为布尔值“true”或“false”(性能警告)
+..\..\source\app\screens\app_scr_set_infusion_duration.cpp(312): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+  app_scr_set_infusion_speed.cpp
+..\..\source\app\screens\app_scr_set_infusion_speed.cpp(62): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+..\..\source\app\screens\app_scr_set_infusion_speed.cpp(83): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+..\..\source\app\screens\app_scr_set_infusion_speed.cpp(128): warning C4800: “int32_t”: 将值强制为布尔值“true”或“false”(性能警告)
+..\..\source\app\screens\app_scr_set_infusion_speed.cpp(301): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+  app_scr_set_max_clean_tube_dose.cpp
+  app_scr_set_peek_mode_duration.cpp
+  app_scr_set_peek_mode_speed.cpp
+  app_scr_set_time.cpp
+  app_scr_set_total_dose.cpp
+  app_scr_set_year.cpp
+  正在生成代码...
+  正在编译...
+  app_scr_task_confirm.cpp
+  app_select_popup.cpp
+  app_set_menu.cpp
+..\..\source\app\screens\app_set_menu.cpp(145): warning C4800: “int32_t”: 将值强制为布尔值“true”或“false”(性能警告)
+  scr_battery_calibration.cpp
+  scr_clean_tube.cpp
+  scr_factory_mode.cpp
+..\..\source\app\screens\scr_factory_mode.cpp(157): warning C4800: “int32_t”: 将值强制为布尔值“true”或“false”(性能警告)
+  scr_layout.cpp
+  scr_new_pressure_calibration.cpp
+  scr_password_popup.cpp
+  scr_precision_calibration.cpp
+..\..\source\app\screens\scr_precision_calibration.cpp(147): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+  scr_precision_factor.cpp
+..\..\source\app\screens\scr_precision_factor.cpp(115): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+  scr_pressure_calibration.cpp
+  scr_pressure_threshold.cpp
+  scr_set_clean_tube_dose.cpp
+  scr_sleep.cpp
+  scr_tip_popup.cpp
+  scr_unlock_tip.cpp
+  do_before_main_loop.cpp
+  init.cpp
+..\..\source\init.cpp(166): warning C4800: “int32_t”: 将值强制为布尔值“true”或“false”(性能警告)
+  run_test_after_main.cpp
+  正在生成代码...
+  正在编译...
+  screen.cpp
+  ui_common.cpp
+  ui_statusbar.cpp
+  正在生成代码...
+  target.vcxproj -> D:\chemo_pump\Src\MasterMcu\simulator\Debug\target.lib

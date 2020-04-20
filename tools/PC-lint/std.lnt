@@ -1,0 +1,12 @@
+//  IAR C, -si4 -sp4, 
+//  Standard lint options
+
+co-iar.lnt
+co-iar-ext.lnt
+project-option.lnt  -si4 -sp4
+
+
+
+
+
+

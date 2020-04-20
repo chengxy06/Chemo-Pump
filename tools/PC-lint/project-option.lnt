@@ -1,0 +1,34 @@
+//  Project's lint options
+
+
+//add project's macro
+-d__ICCARM__
+-d__ARM_PROFILE_M__
+
+//add head file directory of project
+-i"%IAR_PATH%\arm\inc\c"
+
+//set some head file directory as lib directory
++libdir("%IAR_PATH%\*")
+//+libdir("%PROJ_PATH%\lib\*")
++libdir("%PROJ_PATH%\bsp\*")
+
+//set some function
+//-function( exit, lint_exit )
+
+
+
+
+// Output a summary at the end of analysis.
+-summary()
+
+-sem( main, thread_mono )
+
+//suppress some warning of project
+project-message.lnt
+
+//  issue a error size message at termination.
+//+e900     
+
+//env-si.lnt
+env-vc10.lnt
