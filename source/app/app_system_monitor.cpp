@@ -210,9 +210,9 @@ void app_system_monitor_start()
 	pill_box_install_sensor_left_pwr_enable();
 	pill_box_install_sensor_right_pwr_enable();
 
-    timer_set_handler(kTimerSystemMonitor, app_system_monitor_check);
-    timer_start_periodic_every(kTimerSystemMonitor, SYSTEM_MONITOR_CHECK_TIME_MS);
-	timer_set_handler(kTimerNoOperate, app_system_monitor_no_operate_timer_out);
+    //timer_set_handler(kTimerSystemMonitor, app_system_monitor_check);
+    //timer_start_periodic_every(kTimerSystemMonitor, SYSTEM_MONITOR_CHECK_TIME_MS);
+	//mer_set_handler(kTimerNoOperate, app_system_monitor_no_operate_timer_out);
 
 	app_system_monitor_check();
 }

@@ -143,7 +143,7 @@ void main_run(void)
 #if CPU_USAGE_MODULE_ENABLE
 			cpu_usage_enter_idle();
 #endif
-			ssz_sleep();
+			//z_sleep();
 #if CPU_USAGE_MODULE_ENABLE
 			cpu_usage_exit_idle();
 			//cpu_usage_print_if_large_than(20);

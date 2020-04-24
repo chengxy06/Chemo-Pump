@@ -94,6 +94,7 @@ stop_handler);
 
 //return the encoder from start run
 int infusion_motor_encoder_after_start();
+int infusion_motor_coupler_encoder_after_start();
 int infusion_motor_expect_encoder();
 MotorDirection infusion_motor_direction();
 bool infusion_motor_is_running();

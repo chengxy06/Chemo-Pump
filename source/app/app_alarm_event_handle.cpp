@@ -186,6 +186,6 @@ void app_alarm_on_clear(MsgParam param)
 }
 void app_alarm_event_handle_init()
 {
-	msg_set_handler(kMsgAlarmSet, app_alarm_on_set);
-	msg_set_handler(kMsgAlarmClear, app_alarm_on_clear);
+	//msg_set_handler(kMsgAlarmSet, app_alarm_on_set);
+	//msg_set_handler(kMsgAlarmClear, app_alarm_on_clear);
 }

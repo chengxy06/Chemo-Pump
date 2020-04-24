@@ -15,9 +15,12 @@
         <Checksum>758951954</Checksum>
     </DebugChecksum>
     <StLinkDriver>
-        <CStepIntDis>_ 0</CStepIntDis>
         <stlinkserialNo>474EB2D7</stlinkserialNo>
         <stlinkfoundProbes />
+        <stlinkResetStyle>0</stlinkResetStyle>
+        <stlinkResetStrategy>0</stlinkResetStrategy>
+        <CStepIntDis>_ 0</CStepIntDis>
+        <LeaveTargetRunning>_ 0</LeaveTargetRunning>
     </StLinkDriver>
     <CodeCoverage>
         <Enabled>_ 0</Enabled>
@@ -155,6 +158,27 @@
     <Disassemble_mode>
         <mode>0</mode>
     </Disassemble_mode>
+    <Jet>
+        <JetConnSerialNo>CMSIS-DAP v1:07120001066eff303531544157161148a5a5a5a597969908</JetConnSerialNo>
+        <JetConnFoundProbes />
+        <DisableInterrupts>0</DisableInterrupts>
+        <LeaveRunning>0</LeaveRunning>
+        <MultiCoreRunAll>0</MultiCoreRunAll>
+    </Jet>
+    <LogFile>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+        <Category>_ 0</Category>
+    </LogFile>
+    <PlDriver>
+        <MemConfigValue>C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\CONFIG\debugger\ST\STM32L152ZC.ddf</MemConfigValue>
+    </PlDriver>
+    <ArmDriver>
+        <EnableCache>1</EnableCache>
+    </ArmDriver>
+    <DisassembleMode>
+        <mode>0</mode>
+    </DisassembleMode>
     <Breakpoints2>
         <Bp0>_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\source\middleware\vibrater_motor.c}.42.5" 0 0 1 "" 0 "" 0</Bp0>
         <Count>1</Count>

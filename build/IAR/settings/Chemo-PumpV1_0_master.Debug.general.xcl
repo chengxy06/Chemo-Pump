@@ -1,8 +1,8 @@
 "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\bin\armproc.dll" 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\bin\armstlink2.dll" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\bin\armJET.dll" 
 
-"D:\1-WORK\化疗泵\Code\MasterMcu\build\IAR\Debug\Exe\Chemo-PumpV1_0_master.out" 
+"D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\Debug\Exe\Chemo-PumpV1_0_master.out" 
 
 --plugin="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\bin\armbat.dll" 
 

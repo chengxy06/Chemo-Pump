@@ -1,0 +1,3 @@
+select_1.pbi: \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\source\ui_common\resource\image\select_1.c \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\resource\constant_byte_define.h

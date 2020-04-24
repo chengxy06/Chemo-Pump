@@ -314,6 +314,12 @@ int infusion_motor_encoder_after_start()
 {
 	return g_infusion_motor_encoder;
 }
+
+int infusion_motor_coupler_encoder_after_start()
+{
+	return g_infusion_motor_optical_coupler_encoder;
+}
+
 int infusion_motor_expect_encoder()
 {
 	return g_infusion_motor_expect_encoder;

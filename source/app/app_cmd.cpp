@@ -402,6 +402,28 @@ static int app_cmd_set_date(const char* cmd, char* params[], int param_size)
 
 	return 0;
 }
+//app_cmd_set_time_date
+static int app_cmd_set_time_date(const char* cmd, char* params[], int param_size)
+{
+	if (param_size == 2)
+	{
+		SszDate in_date;
+		in_date = ssz_str_to_date(params[0],kSszDateFormat_YYYY_MM_DD);
+		rtc_set_date(&in_date);
+                printf("%s\n", params[0] );
+
+		SszTime in_time;
+		in_time = ssz_str_to_time(params[1]);
+		rtc_set_time(&in_time);
+                printf("%s\n", params[1] );
+	}
+	else {
+		app_cmd_output_error_info(kInvalidParam);
+	}
+
+	return 0;
+}
+
 static int app_cmd_start_rtc(const char* cmd, char* params[], int param_size)
 {
     drv_rtc_start();
@@ -467,6 +489,105 @@ int app_cmd_io(const char* cmd, char* params[], int param_size)
     return 0;
 }
 
+int app_cmd_key(const char* cmd, char* params[], int param_size)
+{
+	if( drv_key_is_high(kKeyStart) )
+	{
+		printf("false,");
+	}
+	else
+	{
+		printf("true,");
+	}
+	if( drv_key_is_high(kKeyBack) )
+	{
+		printf("false,");
+	}
+	else
+	{
+		printf("true,");
+	}
+	if( drv_key_is_high(kKeyLeft) )
+	{
+		printf("false,");
+	}
+	else
+	{
+		printf("true,");
+	}
+	if( drv_key_is_high(kKeyRight) )
+	{
+		printf("false,");
+	}
+	else
+	{
+		printf("true,");
+	}
+	if( drv_key_is_high(kKeyOK) )
+	{
+		printf("false\n");
+	}
+	else
+	{
+		printf("true\n");
+	}
+  return 0 ;
+}
+
+int app_cmd_pca_key(const char* cmd, char* params[], int param_size)
+{
+	//need to remap pca key
+	if( ssz_gpio_is_high(SZ_HALL_A_GPIO_Port, SZ_HALL_A_Pin) )
+	{
+		printf("false\n");
+	}
+	else
+	{
+		printf("true\n");
+	}
+return 0 ;
+}
+
+int app_cmd_sensor_position(const char* cmd, char* params[], int param_size)
+{
+	pill_box_install_sensor_left_pwr_enable();
+	pill_box_install_sensor_right_pwr_enable();
+
+	if( pill_box_install_left_detect() )
+	{
+		printf("true,");
+	}
+	else
+	{
+		printf("false,");
+	}
+	if( pill_box_install_right_detect() )
+	{
+		printf("true,");
+	}
+	else
+	{
+		printf("false,");
+	}
+return 0 ;
+}
+
+int app_cmd_sensor_bubble(const char* cmd, char* params[], int param_size)
+{	
+	pressure_and_bubble_sensor_pwr_enable();
+
+	if( pressure_bubble_sensor_is_generate_bubble() )
+	{
+		printf("true\n");
+	}
+	else
+	{
+		printf("false\n");
+	}
+
+return 0 ;
+}
+
 //output ad and ad's voltage value
 int app_cmd_ad(const char* cmd, char* params[], int param_size)
 {
@@ -493,6 +614,24 @@ int app_cmd_ad(const char* cmd, char* params[], int param_size)
     return 0;
 }
 
+int app_cmd_battery_voltage_adc(const char* cmd, char* params[], int param_size)
+{
+  sys_power_ADC_enable();
+  int ad = mid_adc_get_ADC_channel_value(kSysPwrADC);
+  int voltage = sys_power_battery_voltage();
+  printf("%d mv\n",M_get_battery_voltage_from_adc(ad));
+	
+  return 0 ;
+}
+
+int app_cmd_pressure_adc(const char* cmd, char* params[], int param_size)
+{
+	pressure_and_bubble_sensor_pwr_enable();
+	int ad = mid_adc_get_ADC_channel_value(kPressureADC);
+	printf("pressure:%d=%dmv=%dkPa\n", ad, M_get_voltage_from_adc(ad), 
+	 	data_read_int(kDataOcclusionSlope)*(ad - pressure_adc_when_installed())/1000);
+return 0 ;
+}
 
 //output saved data and other you need know data
 int app_cmd_data(const char* cmd, char* params[], int param_size)
@@ -1214,6 +1353,19 @@ static int app_cmd_motor_run(const char* cmd, char* params[], int param_size)
 
 	return 0;
 }
+
+static int app_cmd_motor_self_encoder(const char* cmd, char* params[], int param_size)
+{
+	printf("%d\n",infusion_motor_encoder_after_start());
+	return 0 ;
+}
+
+static int app_cmd_motor_ext_encoder(const char* cmd, char* params[], int param_size)
+{
+	printf("%d\n",infusion_motor_coupler_encoder_after_start());
+	return 0 ;
+}
+
 static int app_cmd_motor_reverse(const char* cmd, char* params[], int param_size)
 {
 	bool is_infusion_motor = true;
@@ -1293,6 +1445,43 @@ static int app_cmd_move_to(const char* cmd, char* params[], int param_size)
 	return 0;
 }
 
+static int app_cmd_STF_motor_run(const char* cmd, char* params[], int param_size)
+{
+	if ((param_size > 0 && strcmp(params[0], "A")==0) ||
+		param_size ==0 ){
+		 
+		three_valve_motor_move_to_position_a();
+	}
+	else if (param_size>0 && strcmp(params[0],"B")==0) {
+		 
+		three_valve_motor_move_to_position_b();
+	}
+
+	return 0;
+}
+static int app_cmd_STF_position(const char* cmd, char* params[], int param_size)
+{
+
+	drv_three_valve_pos_detect_pwr_enable();
+	ssz_delay_us(100);
+
+	if( drv_three_valve_is_pos_a_detected() )
+	{
+		printf("A\n");
+	}
+	else
+	{
+		printf("B\n");
+	}
+return 0 ;
+}
+
+static int app_cmd_STF_encoder(const char* cmd, char* params[], int param_size)
+{
+	printf("%d\n",three_valve_motor_encoder_after_start());
+	return 0 ;
+}
+
 void app_cmd_test_play_printf(void)
 {	
 	//ad = drv_isd2360_play_state();
@@ -1344,7 +1533,32 @@ static int app_drv_isd2360_test_play(const char* cmd, char* params[], int param_
 	}
 	return 0;
 }
- 
+
+static int app_drv_music(const char* cmd, char* params[], int param_size)
+{	 
+	 if (param_size < 1) {
+		 app_cmd_output_error_info(kInvalidParam);
+		 return kInvalidParam;
+	 }
+
+	if ((strcmp(params[0], "high") == 0)) {
+		drv_isd2360_setvolume(20);
+		ssz_delay_ms(300);
+		drv_isd2360_play_voice_prompts(  VOPROMPT_HIGH_ALARM,ISD2360_CHANNELCONTROL_SPICMDCH0);
+	}
+	else if((strcmp(params[0], "middle") == 0)){
+		drv_isd2360_setvolume(20);
+		ssz_delay_ms(300);
+		drv_isd2360_play_voice_prompts(  VOPROMPT_LOW_ALARM,ISD2360_CHANNELCONTROL_SPICMDCH0);
+	}
+	else if((strcmp(params[0], "low") == 0)){
+		drv_isd2360_setvolume(20);
+		ssz_delay_ms(300);
+		drv_isd2360_play_voice_prompts(  VOPROMPT_BEEP_ALARM,ISD2360_CHANNELCONTROL_SPICMDCH0);
+	}
+
+return 0 ;
+}
 
 static int app_drv_isd2360_set_volume(const char* cmd, char* params[], int param_size)
 {   
@@ -1679,13 +1893,13 @@ static int app_cmd_enter_low_mode(const char* cmd, char* params[], int param_siz
 	app_mcu_monitor_stop();
 
 	int type = atoi(params[0]);
- 	printf("enter lowpower \n");	
+ 	//printf("enter lowpower \n");	
 	drv_lowpower_sleep_slaver();
 	drv_lowpower_enter_lpsleep(type , false);
 	
 	drv_lowpower_exit_lpsleep();
 	drv_lowpower_wakeup_slaver();
-	printf("exit lowpower \n");	
+	//printf("exit lowpower \n");	
 	ssz_delay_ms(20);
 	if(!watchdog_is_enable()){
 		app_mcu_send_to_slave(COMM_SLAVER_MCU_STOP_DOG,0,0);
@@ -1730,6 +1944,12 @@ static int app_cmd_test_com(const char* cmd, char* params[], int param_size) {
 	 app_mcu_send_to_slave(COMM_BEEP_TEST,0,0);
  	return 0;
 }
+
+static int app_cmd_alarm(const char* cmd, char* params[], int param_size) {
+	 app_mcu_send_to_slave(COMM_BEEP_TEST,0,0);
+ 	return 0;
+}
+
 static int app_cmd_wake_up_slaver(const char* cmd, char* params[], int param_size) {
 	if (param_size < 1) {
 		app_cmd_output_error_info(kInvalidParam);
@@ -2258,7 +2478,6 @@ const static AppCmdInfo g_app_cmd_info[] =
 {
 	{"help", app_cmd_help,"show cmd info"},
 	{"exit", app_cmd_exit,"exit cmd mode"},
-	//{"disable", app_cmd_disable,"disable cmd"},
 	{"repeat", app_cmd_repeat, "repeat last cmd each time, e.g. repeat [time_ms], repeat 2000" },
 #ifdef TEST
 	{"test", app_cmd_test, "run test case, inputs \'test -h\' to get help "},
@@ -2278,6 +2497,15 @@ const static AppCmdInfo g_app_cmd_info[] =
 #endif
 	{"io", app_cmd_io, "show all input GPIO value"},
 	{"ad", app_cmd_ad, "show all ad value" },
+
+	{"key", app_cmd_key, "show the status of five keys, true&false = release&press" },
+	{"pca_key", app_cmd_pca_key, "show the status of pca key, true&false = release&press" },
+	{"sensor_position", app_cmd_sensor_position, "show the status of two sensors position, true&false = release&press" },
+	{"sensor_bubble", app_cmd_sensor_bubble, "show the status of sensor bubble, true&false" },
+
+	{"battery_voltage_adc", app_cmd_battery_voltage_adc, "show battery voltage adc value, xxx mv" },
+	{"pressure_adc", app_cmd_pressure_adc, "show pressure adc value" },
+
 #if DATA_MODULE_ENABLE
 	{"data", app_cmd_data, "show saved data" },
 	{"data_change", app_cmd_change_data, "data_change x y , if x=1,encoder per mL,\n\t\t if x=2, occlusion slope,\n\t\t if x=3, occlusion one drop ADC,\n\t\t if x=4, battery offset"},
@@ -2300,8 +2528,12 @@ const static AppCmdInfo g_app_cmd_info[] =
 	{"time", app_cmd_time, "show current time" },
 	{"set_time", app_cmd_set_time,"e.g. set_time 1:15:30" },
 	{"set_date", app_cmd_set_date,"e.g. set_date 2017-10-20" },
+
+	{"rtc_set_time", app_cmd_set_time_date,"e.g. set_time 2017-10-20 1:15:30" },
+	{"rtc_time", app_cmd_time, "show current time, 2017-10-20 1:15:30" },
+
 	{"rtc_run", app_cmd_start_rtc,"start rtc" },
-	{"rtc_stop", app_cmd_stop_rtc,"stop rtc" },
+	{"rtc_stop", app_cmd_stop_rtc,"stop rtc" },	
 #endif
 #if RECORD_LOG_MODULE_ENABLE
 	{"clear_log", app_cmd_clear_log,
@@ -2332,14 +2564,22 @@ const static AppCmdInfo g_app_cmd_info[] =
 	{"infusion_info", app_cmd_infusion_info, "print current infusion info(status)"},
 
 	{"motor_run", app_cmd_motor_run, "Usage: [encoder], e.g.: motor_run, motor_run 50" },
+	{"motor_self_encoder", app_cmd_motor_self_encoder, "check motor self encoder value" },
+	{"motor_ext_encoder", app_cmd_motor_ext_encoder, "check motor externel encoder value" },
+		
 	{"motor_reverse", app_cmd_motor_reverse, "Usage: [encoder]" },
 	{"motor_run_ex", app_cmd_motor_run_ex, "run by optical coupler encoder, Usage: [optical_coupler_encoder]" },
 	{"motor_reverse_ex", app_cmd_motor_reverse_ex, "motor reverse by optical coupler encoder" },	
 	{"motor_stop", app_cmd_motor_stop, "Usage:motor_stop [three]" },
 	{"move_to", app_cmd_move_to, "move valve to position a or b, Usage: move_to [a|b]"},	
-	
+	{"STF_motor_run", app_cmd_STF_motor_run, "move valve to position a or b, Usage: move_to [a|b]"},	
+	{"STF_position", app_cmd_STF_position, "check valve position, return value is A or B"},	
+	{"STF_encoder", app_cmd_STF_encoder, "check valve motor encoder value"},	
+			
     {"play", app_drv_isd2360_test_play, "play control,play x. \n\t\t x:1->play alarm high once, 2->isd2360 powerup, 3->isd2360 powerdown"
      "\n\t\t 4->drv_isd2360_pcb_power_disable, 5->drv_isd2360_pcb_power_enable"},
+    {"music", app_drv_music, "music control,usage: music high,music middle,music low"},
+          
     {"set_volume", app_drv_isd2360_set_volume, "set_volume 0-255"},
     {"flash", app_sst25_test, "flash control,flash x. \n\t\t x:1->read flash id, 2->2 output Flash test is OK"},
 	{"vibrator", app_cmd_vibrator_play, "turn vibrator on for 300ms then off" },
@@ -2367,6 +2607,7 @@ const static AppCmdInfo g_app_cmd_info[] =
 	 "\n\t\t 10->close pressure and bubble sensor,\n\t\t 11->infusion_motor_sleep_enable,\n\t\t 12->wakeup_slaver_pin low,"
 	 "\n\t\t 13->master mcu no up power, 14->isd2360 pcb power off"},	
 	{"test_com", app_cmd_test_com, "test communication with slave MCU" },
+	{"alarm", app_cmd_alarm, "test beep" },
 #if MOTOR_ENABLE_CHECK_ENCODER_AFTER_STOP
 	{"encoder_after_stop", app_cmd_encoder_after_stop,"output encoder after motor stop"},
 #endif
