@@ -41,16 +41,8 @@
 #include "stop_watch.h"
 #include "param.h"
 
-//app
-#include "app_system_monitor.h"
-#include "app_motor_monitor.h"
-#include "app_infusion_monitor.h"
-#include "app_delivery.h"
-#include "app_scr_event_handle.h"
-#include "app_key_event_handle.h"
-#include "app_alarm_event_handle.h"
-#include "app_infusion_event_handle.h"
-#include "app_msg_handle.h"
+
+//#app
 #include "app_cmd.h"
 #include "app_mcu_comm.h"
 
@@ -78,7 +70,7 @@ void init_common() {
 #endif
 
 	//init simple alloc
-	salloc_config();
+	//salloc_config();
 
 	//init system language and country region
 	ssz_locale_set_lang(kSszLangSimplifiedChinese);
@@ -119,7 +111,7 @@ void init_driver(){
 	drv_sst25_flash_init();
 //printf("drv_sst25_flash_init \n");		
 	//drv_isd2360_initial();
-	drv_isd2360_deinitial();
+	drv_isd2360_initial();
 //printf("drv_isd2360_initial \n");		
 	drv_infusion_motor_init();
 	drv_three_valve_motor_init();
@@ -169,26 +161,16 @@ void init_middleware(){
     
 }
 
-void init_app(){
-	ssz_traceln("init app");
-
-	screen_init(kScreenHome);
-	app_cmd_init();
-	app_motor_monitor_init();
-	app_mcu_comm_init();
-	
-	app_scr_event_handle_init();
-	app_key_event_handle_init();
-	app_alarm_event_handle_init();
-	app_infusion_event_handle_init();
-	app_msg_handle_init();
-	app_delivery_init();
-	app_infusion_monitor_init();
+void init_app()
+{
+  app_cmd_init(  );
+  app_mcu_comm_init();
 }
 
-void init_all(){
-	init_common();
-	init_driver();
-	init_middleware();
-	init_app();
+void init_all()
+{
+  init_common();
+  init_driver();
+  init_middleware();
+  init_app();
 }

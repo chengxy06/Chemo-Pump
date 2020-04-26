@@ -80,6 +80,5 @@ main_run.pbi: D:\1-WORK\chemo_pump\Code\MasterMcu\source\main_run.c \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware/mid_adc.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\kernel\msg.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\msg_config.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\app\app_mcu_comm.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\mid_common.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware/sys_power.h

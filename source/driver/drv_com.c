@@ -99,9 +99,9 @@ const SszIODevice kDrvComIODev = {
 void drv_com_init()
 {
 	ComID com_id1 = kComPCUart;
-    ComID com_id2 = kComMCUUart;
-    ComID com_id3 = kComBTUart;
-    
+        ComID com_id2 = kComMCUUart;
+        ComID com_id3 = kComBTUart;
+        
 	g_drv_com_info[com_id1].com_event = kEventPCUartReceiveNewData;
 	g_drv_com_info[com_id1].uart.obj = &PC_UART;
 	g_drv_com_info[com_id1].uart.is_enable_synchronous = false;
@@ -126,9 +126,9 @@ void drv_com_init()
 		//lint -e{506}
 		__HAL_UART_ENABLE_IT((UART_HandleTypeDef*)g_drv_com_info[com_id1].uart.obj, UART_IT_RXNE);
 		//lint -e{506}
-        __HAL_UART_ENABLE_IT((UART_HandleTypeDef*)g_drv_com_info[com_id2].uart.obj, UART_IT_RXNE);
+              __HAL_UART_ENABLE_IT((UART_HandleTypeDef*)g_drv_com_info[com_id2].uart.obj, UART_IT_RXNE);
 		//lint -e{506}
-        __HAL_UART_ENABLE_IT((UART_HandleTypeDef*)g_drv_com_info[com_id3].uart.obj, UART_IT_RXNE);
+              __HAL_UART_ENABLE_IT((UART_HandleTypeDef*)g_drv_com_info[com_id3].uart.obj, UART_IT_RXNE);
 #endif
 	}
 

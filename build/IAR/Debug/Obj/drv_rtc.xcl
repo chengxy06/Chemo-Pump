@@ -22,10 +22,6 @@ D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\resource
 -I
 D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\widget
 -I
-D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\app
--I
-D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\app\screens
--I
 D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware
 -I
 D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\kernel
@@ -52,6 +48,8 @@ D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\bsp\bsp_machine\Drivers\CMSI
 -I
 D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\bsp\bsp_machine\Drivers\STM32L1xx_HAL_Driver\Inc
 -I
+D:\1-WORK\chemo_pump\Code\MasterMcu\source\FCT_app
+-I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc\c
@@ -67,10 +65,6 @@ D:\1-WORK\chemo_pump\Code\MasterMcu\source\ui_common
 D:\1-WORK\chemo_pump\Code\MasterMcu\source\ui_common\resource
 -I
 D:\1-WORK\chemo_pump\Code\MasterMcu\source\ui_common\widget
--I
-D:\1-WORK\chemo_pump\Code\MasterMcu\source\app
--I
-D:\1-WORK\chemo_pump\Code\MasterMcu\source\app\screens
 -I
 D:\1-WORK\chemo_pump\Code\MasterMcu\source\middleware
 -I
@@ -97,6 +91,8 @@ D:\1-WORK\chemo_pump\Code\MasterMcu\bsp\bsp_machine\Drivers\CMSIS\Include
 D:\1-WORK\chemo_pump\Code\MasterMcu\bsp\bsp_machine\Drivers\CMSIS\Device\ST\STM32L1xx\Include
 -I
 D:\1-WORK\chemo_pump\Code\MasterMcu\bsp\bsp_machine\Drivers\STM32L1xx_HAL_Driver\Inc
+-I
+D:\1-WORK\chemo_pump\Code\MasterMcu\source\FCT_app
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0

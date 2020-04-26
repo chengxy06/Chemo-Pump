@@ -17,8 +17,8 @@
 #include "mid_rtc.h"
 #endif
 #include "ssz_time_utility.h"
-#include "app_common.h"
 #include "mid_common.h"
+#include "app_common.h"
 
 /************************************************
 * Declaration

@@ -33,7 +33,6 @@
 #include "ssz_config.h"
 #include "ssz_def.h"
 #include "ui_view.h"
-#include "app_infusion_monitor.h"
 #include "display.h"
 #include "param.h"
 #include "app_mcu_comm.h"
@@ -41,10 +40,7 @@
 #include "screen.h"
 #include "drv_infusion_motor.h"
 #include "do_before_main_loop.h"
-#include "app_mcu_monitor.h"
-#include "scr_sleep.h"
 #include "drv_rtc.h"
-#include "app_system_monitor.h"
 
 
 #ifdef CPU_USAGE_MODULE_ENABLE

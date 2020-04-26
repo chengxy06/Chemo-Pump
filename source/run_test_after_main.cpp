@@ -9,17 +9,12 @@
 #include "timer.h"
 #include "com.h"
 #include "sys_power.h"
-#include "app_home.h"
 #include "ui.h"
 #include "image_data.h"
 #include "key.h"
 #include "mid_rtc.h"
 #include "mid_common.h"
 
-#include "app_startup_and_post.h"
-#include "app_main_menu.h"
-#include "app_scr_alarm.h"
-#include "app_common.h"
 /************************************************
 * Declaration
 ************************************************/

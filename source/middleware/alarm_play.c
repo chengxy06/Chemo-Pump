@@ -10,9 +10,8 @@
 #include "alarm_play.h"
 #include "timer.h"
 #include "common.h"
-#include "led.h"
-#include "app_sleep.h"
 #include "mid_common.h"
+#include "led.h"
 #ifdef SSZ_TARGET_MACHINE
 #include "spi.h"
 #endif

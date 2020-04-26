@@ -18,9 +18,6 @@
 extern "C" {
 #endif
 
-
-extern int g_infusion_monitor_battery_empty_voltage_for_msg;
-
 #define motor_printfln(...) ssz_printfln_ex(is_module_enable_output(kModuleMotor),MOTOR_MODULE_NAME,__VA_ARGS__)
 #define motor_monitor_printfln(...) ssz_printfln_ex(is_module_enable_output(kModuleMotorMonitor),MOTOR_MONITOR_MODULE_NAME,__VA_ARGS__)
 #define MOTOR_STOP_BY_USER 0	

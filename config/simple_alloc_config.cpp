@@ -10,8 +10,6 @@
 #include "simple_alloc.h"
 #include "ssz_common.h"
 #include "app_popup.h"
-#include "app_alternative_popup.h"
-#include "scr_tip_popup.h"
 
 /************************************************
 * Declaration

@@ -7,7 +7,6 @@
 #include "string_data.h"
 #include "image_data.h"
 #include "font_data.h"
-#include "app_common.h"
 #include "ui_view.h"
 #include "ui_statusbar.h"
 #include "ui_define.h"
@@ -161,10 +160,11 @@ void statusbar_init()
 	else {
 		statusbar()->hide_icon(kStatusbarIconOrderAC);
 	}
-	if (is_keypad_locked()) {
-		statusbar()->show_icon(kStatusbarIconOrderLock, get_image(kImgLock));
-	}
-	else {
+//	if (is_keypad_locked()) {
+//		statusbar()->show_icon(kStatusbarIconOrderLock, get_image(kImgLock));
+//	}
+//	else
+        {
 		statusbar()->hide_icon(kStatusbarIconOrderLock);
 	}
 }

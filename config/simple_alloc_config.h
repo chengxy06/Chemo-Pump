@@ -26,7 +26,7 @@ typedef enum {
 #ifdef __cplusplus
 extern "C" {
 #endif
-void salloc_config();
+//void salloc_config();
 #ifdef __cplusplus
 }
 #endif

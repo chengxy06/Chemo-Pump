@@ -20,7 +20,6 @@
 #include "param.h"
 #include "pressure_bubble_sensor.h"
 #include "mid_common.h"
-#include "app_delivery.h"
 
 /************************************************
 * Declaration
@@ -106,7 +105,7 @@ void infusion_motor_run_check() {
 		if (g_infusion_motor_last_encoder == g_infusion_motor_encoder) {
             if (is_battery_low_when_motor_run()){
                 set_battery_status_low_when_motor_run(false);
-                msg_post_two_param(kMsgBatteryStatusWhenMotorRun, kBatteryEmpty, g_infusion_monitor_battery_empty_voltage_for_msg);
+                //msg_post_two_param(kMsgBatteryStatusWhenMotorRun, kBatteryEmpty, g_infusion_monitor_battery_empty_voltage_for_msg);
             } else {
                 if (g_infusion_motor_error_counter_encoder < INFUSION_MOTOR_ENCODER_ERROR_CHECK) {
                     g_infusion_motor_error_counter_encoder++;
@@ -129,7 +128,7 @@ void infusion_motor_run_check() {
 		{
             if (is_battery_low_when_motor_run()){;
                 set_battery_status_low_when_motor_run(false);
-                msg_post_two_param(kMsgBatteryStatusWhenMotorRun, kBatteryEmpty, g_infusion_monitor_battery_empty_voltage_for_msg);
+                //msg_post_two_param(kMsgBatteryStatusWhenMotorRun, kBatteryEmpty, g_infusion_monitor_battery_empty_voltage_for_msg);
             } else {
                 if (g_infusion_motor_error_counter_optical_encoder < INFUSION_MOTOR_ENCODER_ERROR_CHECK) {
                     g_infusion_motor_error_counter_optical_encoder++;
@@ -352,7 +351,6 @@ void infusion_motor_on_finish_target() {
 void infusion_motor_on_direction_wrong() {
     if (is_battery_low_when_motor_run()){
         set_battery_status_low_when_motor_run(false);
-        msg_post_two_param(kMsgBatteryStatusWhenMotorRun, kBatteryEmpty, g_infusion_monitor_battery_empty_voltage_for_msg);
     } else {
 
         if (g_infusion_motor_error_counter_direction < INFUSION_MOTOR_ENCODER_ERROR_CHECK) {

@@ -13,7 +13,7 @@ extern "C" {
 typedef enum {
 	kComPCUart, //communicate with PC by UART
 	kComMCUUart, //Master-Slaver communicate
-    kComBTUart, //communicate with BlueTooth by UART
+        kComBTUart, //communicate with BlueTooth by UART
 	kComIDMax
 }ComID;
 

@@ -92,15 +92,13 @@ three_valve_motor.pbi: \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_errorcode.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_record.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include/ssz_nvram.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\app\app_common.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\source\middleware/sys_power.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\source\middleware/mid_common.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\source\FCT_app\app_common.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\resource\string_data.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_locale.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\resource/generated_string_id.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\resource\image_data.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\resource/generated_image_id.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_ui\include\ui.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\ssz_ui_config.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\app/app_delivery.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\app\app_mcu_monitor.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\source\middleware/sys_power.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\source\middleware/mid_common.h
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\ssz_ui_config.h

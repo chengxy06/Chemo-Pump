@@ -85,7 +85,7 @@ drv_lowpower.pbi: \
   D:\1-WORK\chemo_pump\Code\MasterMcu\source\driver/drv_infusion_motor.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\sys_power.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\display.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\app\app_mcu_comm.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\source\FCT_app\app_mcu_comm.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\voice.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\source\driver\drv_isd2360.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\led.h

@@ -1,6 +1,6 @@
 app_mcu_comm.pbi: \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\source\app\app_mcu_comm.cpp \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\source\app/app_mcu_comm.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\source\FCT_app\app_mcu_comm.cpp \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\source\FCT_app/app_mcu_comm.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_def.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdint.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\ycheck.h \
@@ -81,7 +81,6 @@ app_mcu_comm.pbi: \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\infusion_motor.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\common\common.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\config.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\source\app/app_delivery.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\alarm.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_list.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\kernel\msg.h \
@@ -91,17 +90,16 @@ app_mcu_comm.pbi: \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware/vibrater_motor.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\alarm_config.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\driver\drv_lowpower.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\source\app/app_mcu_monitor.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\source\app/app_common.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\record_log.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\record_log_config.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_errorcode.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_record.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include/ssz_nvram.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\source\FCT_app/app_common.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\resource\string_data.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_locale.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\resource/generated_string_id.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\resource\image_data.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\resource/generated_image_id.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_ui\include\ui.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\ssz_ui_config.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\record_log.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\record_log_config.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_errorcode.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_record.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include/ssz_nvram.h
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\ssz_ui_config.h

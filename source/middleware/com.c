@@ -44,10 +44,10 @@ void com_handle_new_received_data(ComID com_id)
             //get the receive byte
             a = (uint8_t)ssz_fgetc(g_com_files[com_id]);
             ret = com_handle_new_byte(com_id, a);
-			if(ssz_fsize(g_com_files[com_id])==0){
-				//the receive data is clear by a com handle, so stop handle
-				break;
-			}
+            if(ssz_fsize(g_com_files[com_id])==0){
+                    //the receive data is clear by a com handle, so stop handle
+                    break;
+            }
 			
             if (ret == false)
             {

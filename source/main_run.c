@@ -7,7 +7,6 @@
 #include "timer.h"
 #include "cpu_usage.h"
 #include "sys_power.h"
-#include "app_mcu_comm.h"
 #include "mid_common.h"
 
 /************************************************

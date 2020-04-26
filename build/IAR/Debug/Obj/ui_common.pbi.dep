@@ -88,8 +88,6 @@ ui_common.pbi: \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\msg_config.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\resource\string_data.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\ui_common\resource/generated_string_id.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\app\app_common.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\app/app_delivery.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\source\ui_common/ui_define.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\mid_common.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware/sys_power.h \

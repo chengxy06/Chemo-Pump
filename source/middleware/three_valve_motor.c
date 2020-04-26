@@ -16,10 +16,9 @@
 #include "alarm.h"
 #include "mid_adc.h"
 #include "record_log.h"
-#include "app_common.h"
-#include "app_mcu_monitor.h"
 #include "sys_power.h"
 #include "mid_common.h"
+#include "app_common.h"
 
 /************************************************
 * Declaration
@@ -243,6 +242,7 @@ bool three_valve_motor_move_to_position(int is_to_a)
 		three_valve_motor_stop(stop_cause);
 		//drv_three_valve_pos_detect_pwr_disable();
 
+                #define WATCHDOG_EXPIRED_TIME_MS 200
 		//restore watchdog time
 		watchdog_set_expired_time(WATCHDOG_EXPIRED_TIME_MS);
 		
