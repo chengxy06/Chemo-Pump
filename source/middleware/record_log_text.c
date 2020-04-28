@@ -17,8 +17,6 @@
 /************************************************
 * Function 
 ************************************************/
-
-
 //convert var to str, return the str
 const char* record_log_var_to_str(const LogVar* one_var, char* buff, int buff_max_size)
 {
@@ -43,16 +41,7 @@ const char* record_log_var_to_str(const LogVar* one_var, char* buff, int buff_ma
 		break;
 	case kLogVarAlarmID:
 	{
-		AlarmLevel alarm_level = alarm_id_to_level((AlarmID)(one_var->value));
-		if (alarm_level >= kAlarmLevelHighest) {
-			snprintf(buff, buff_max_size, "!!!%s", alarm_id_to_const_str((AlarmID)(one_var->value)));
-		} else if (alarm_level >= kAlarmLevelHigh) {
-			snprintf(buff, buff_max_size, "!!!%s", alarm_id_to_const_str((AlarmID)(one_var->value)));
-		} else if (alarm_level >= kAlarmLevelLowest) {
-			snprintf(buff, buff_max_size, "!%s", alarm_id_to_const_str((AlarmID)(one_var->value)));
-		} else {
-			snprintf(buff, buff_max_size, "%s", alarm_id_to_const_str((AlarmID)(one_var->value)));
-		}
+
 		break;
 	}
 	default:

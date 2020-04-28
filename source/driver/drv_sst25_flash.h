@@ -98,6 +98,8 @@ void drv_sst25_pcb_sleep_enable(void);
 //disable sst25 power supply from system power supply
 void drv_sst25_pcb_sleep_disable(void);
 
+void drv_sst25_flash_disable_Protected(void);
+
 //return ssz file
 SszFile* drv_sst25_flash_file();
 

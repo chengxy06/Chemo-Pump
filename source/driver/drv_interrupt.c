@@ -14,9 +14,6 @@
 #include "ssz_common.h"
 #include "dev_def.h"
 #include "event.h"
-#ifdef SSZ_TARGET_SIMULATOR
-#include "sim_interface.h"
-#endif
 #include "infusion_motor.h"
 #include "three_valve_motor.h"
 #include "drv_infusion_motor.h"
@@ -102,17 +99,17 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 #if MOTOR_ENABLE_CALC_SPEED
 		if (g_infusion_motor_is_speed_done == true)
 		{
-            g_infusion_motor_is_speed_done = false;
-            g_infusion_motor_check_speed_encoder_start_time = ssz_tick_time_now();
-            g_infusion_motor_check_speed_encoder=g_infusion_motor_encoder;
+                  g_infusion_motor_is_speed_done = false;
+                  g_infusion_motor_check_speed_encoder_start_time = ssz_tick_time_now();
+                  g_infusion_motor_check_speed_encoder=g_infusion_motor_encoder;
 		}
 
         if(g_infusion_motor_encoder >= g_infusion_motor_check_speed_encoder){
     		if (g_infusion_motor_encoder-g_infusion_motor_check_speed_encoder >= MOTOR_SPEED_CHECK_COUNT)
     		{
-                g_infusion_motor_is_speed_done = true;
-                g_infusion_motor_check_speed_encoder_run_time=ssz_tick_time_elapsed(g_infusion_motor_check_speed_encoder_start_time);
-                event_set(kEventInfusionMotorGetSpeedFinished);
+                  g_infusion_motor_is_speed_done = true;
+                  g_infusion_motor_check_speed_encoder_run_time=ssz_tick_time_elapsed(g_infusion_motor_check_speed_encoder_start_time);
+                  event_set(kEventInfusionMotorGetSpeedFinished);
     		}
         }else{
             if (INT32_MAX-g_infusion_motor_check_speed_encoder+g_infusion_motor_encoder+1 >= MOTOR_SPEED_CHECK_COUNT)

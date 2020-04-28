@@ -3,7 +3,7 @@
 /************************************************
 * Declaration
 ************************************************/
-#define SOFTWARE_NAME "Chemo-PumpV1_0_master"
+#define SOFTWARE_NAME "ChemoPump-FCT-Programe"
 #define SUPPORT_BOOTLOADER 0
 
 #define MAJOR_VERSION   1

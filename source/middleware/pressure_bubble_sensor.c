@@ -58,9 +58,3 @@ int pressure_bubble_sensor_get_pressure_sensor_ADC_average_value()
 {
     return mid_adc_get_average_ADC_channel_value(kPressureADC);
 }
-
-
-
-
-
-

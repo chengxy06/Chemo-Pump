@@ -66,25 +66,6 @@ do_before_main_loop.pbi: \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_time.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\key.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\key_config.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\alarm.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_list.h \
-  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdlib.h \
-  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_Product_stdlib.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_common.h \
-  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\string.h \
-  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_Product_string.h \
-  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\assert.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include/ssz_tick_time.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\kernel\msg.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\msg_config.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\kernel\timer.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\timer_config.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config/config.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware/voice.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\driver\drv_isd2360.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_file.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware/vibrater_motor.h \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\alarm_config.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_ui\include\ui.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\ssz_ui_config.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_ui\include\view\ui_view.h \
@@ -104,6 +85,13 @@ do_before_main_loop.pbi: \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_ui\include\view\widget/ui_draw_base.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\sys_power.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware/mid_adc.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_common.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\string.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_Product_string.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\assert.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include/ssz_tick_time.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\kernel\msg.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\msg_config.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\record_log.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\record_log_config.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_errorcode.h \
@@ -112,6 +100,17 @@ do_before_main_loop.pbi: \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\param.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware/sys_power.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware/alarm.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_list.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdlib.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_Product_stdlib.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\kernel\timer.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\timer_config.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config/config.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware/voice.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\driver\drv_isd2360.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\lib\ssz_micro_sys\include\ssz_file.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware/vibrater_motor.h \
+  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\alarm_config.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware/record_log.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\middleware\kernel\dtimer.h \
   D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\source\driver\drv_stf_motor.h \

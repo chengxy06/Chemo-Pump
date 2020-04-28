@@ -57,7 +57,7 @@ typedef struct {
 }DrvSST25FlashDev;
 uint8_t drv_sst25_flash_read_status(uint8_t status_code);
 static void drv_sst25_flash_enable_write(void);
-static void drv_sst25_flash_disable_Protected(void);
+//static void drv_sst25_flash_disable_Protected(void);
 static void drv_sst25_select_slave(bool is_select);
   bool drv_sst25_flash_write_at_one_page(int32_t address, uint8_t *buff, int buffer_len);
 extern const SszIODevice kDrvSST25FlashIODev;
@@ -132,7 +132,7 @@ uint8_t drv_sst25_flash_read_status(uint8_t status_code)
 }
 
 //read status register, param can be:SST25_FLASH_STATUS1,SST25_FLASH_STATUS2,SST25_FLASH_STATUS3
-static void drv_sst25_flash_disable_Protected(void)
+void drv_sst25_flash_disable_Protected(void)
 {
 	//int retry ;
 	drv_sst25_flash_wait_idle();
@@ -210,10 +210,6 @@ bool drv_sst25_flash_read(int32_t address, void *buff, int need_read_size)
 	bool is_ok = true;
 	int i ;
 	ssz_assert(address >= 0 && address + need_read_size <= SST25_FLASH_SIZE);
-#ifdef SSZ_TARGET_SIMULATOR
-	sim_memory_read_by_address(g_sst25_flash_sim, address, buff, need_read_size);
-	return true;
-#endif
  	drv_sst25_flash_wait_idle();
 	drv_sst25_flash_enable_cs();
 
@@ -239,9 +235,7 @@ void drv_sst25_flash_write_one_byte(int32_t address, uint8_t one_byte){
 	drv_sst25_flash_enable_write();
 	
 	drv_sst25_flash_wait_idle();
-#ifdef SSZ_TARGET_MACHINE
-		ssz_assert(M_drv_sst25_flash_is_enable_write(drv_sst25_flash_read_status(SST25_FLASH_STATUS1)));
-#endif
+        
 	drv_sst25_flash_enable_cs();
 	ssz_fputc(g_sst25_flash_spi_file, SST25_FLASH_BYTE_PROGRAM_CMD);
 	//write 24bit address
@@ -260,9 +254,7 @@ void drv_sst25_flash_write_buff(int32_t address, uint8_t *buff, int buffer_len){
 	drv_sst25_flash_enable_write();
 
 	drv_sst25_flash_wait_idle();
-#ifdef SSZ_TARGET_MACHINE
-	ssz_assert(M_drv_sst25_flash_is_enable_write(drv_sst25_flash_read_status(SST25_FLASH_STATUS1)));
-#endif	
+
 	drv_sst25_flash_enable_cs();
 	ssz_fputc(g_sst25_flash_spi_file, SST25_FLASH_AAI_WORD_PROGRAM_CMD);
 	//write 24bit address
@@ -300,10 +292,6 @@ bool drv_sst25_flash_write_at_one_page(int32_t address, uint8_t *buff, int buffe
 	ssz_assert(address >= 0 && address + buffer_len <= SST25_FLASH_SIZE
 		&& address%SST25_FLASH_AAI_PROGRAM_UNIT_SIZE + buffer_len <= SST25_FLASH_AAI_PROGRAM_UNIT_SIZE);
 
-#ifdef SSZ_TARGET_SIMULATOR
-	sim_memory_write_flash_by_address(g_sst25_flash_sim, address, buff, buffer_len);
-	return true;
-#endif
 	if(buffer_len>0){
 		if(buffer_len%2==0){
 			drv_sst25_flash_write_buff(address, buff, buffer_len);
@@ -370,10 +358,6 @@ void drv_sst25_flash_erase_one_unit(int32_t address)
 	ssz_assert(address >= 0 && address<SST25_FLASH_SIZE
 		&& address%SST25_FLASH_ERASE_UNIT_SIZE == 0);
 
-#ifdef SSZ_TARGET_SIMULATOR
-	sim_memory_write_ff_by_address(g_sst25_flash_sim, address, SST25_FLASH_ERASE_UNIT_SIZE);
-	return;
-#endif
 	drv_sst25_flash_enable_write();
 	drv_sst25_flash_wait_idle();
 	ssz_assert(M_drv_sst25_flash_is_enable_write(drv_sst25_flash_read_status(SST25_FLASH_STATUS1)));
@@ -400,10 +384,6 @@ void drv_sst25_flash_erase_one_unit(int32_t address)
 ************************************************/
 void drv_sst25_flash_erase_chip(void)
 {
-#ifdef SSZ_TARGET_SIMULATOR
-	sim_memory_write_ff_by_address(g_sst25_flash_sim, 0, SST25_FLASH_SIZE);
-	return;
-#endif
 	drv_sst25_flash_disable_Protected();
 
 	drv_sst25_flash_enable_write();
@@ -484,9 +464,6 @@ bool drv_sst25_flash_init(void)
 {
 	uint32_t id;
 
-#ifdef SSZ_TARGET_SIMULATOR
-	g_sst25_flash_sim = sim_memory_create("SST25_norflash", SST25_FLASH_SIZE, 0xFF);
-#endif
 	drv_sst25_pcb_sleep_disable();
 
 	ssz_spi_init(&g_sst25_flash_spi, &SST25_FLASH_SPI, drv_sst25_select_slave);
@@ -510,7 +487,7 @@ bool drv_sst25_flash_init(void)
 	}
 }
 
-//IO define
+//IO define  
 static int drv_sst25_flash_file_read(struct ssz_file_t* file, void* buff, int buff_size, int* real_read_buff_size) {
 	DrvSST25FlashDev* dev = file->dev_data;
 

@@ -254,10 +254,10 @@ void data_on_read_error(DataID read_data_id, int error_code, uint8_t notify_erro
 		int block_index = data_id_to_block_map_index(read_data_id, NULL);
 		if (g_data_block_map[block_index].data_id == kDataUserBlock || g_data_block_map[block_index].data_id == kDataInfusionInfoBlock
             || g_data_block_map[block_index].data_id == kDataSetInfusionParaInfoBlock) {
-			alarm_set(kAlarmUserParamReadErrorID);
+			//alarm_set(kAlarmUserParamReadErrorID);
 		}
 		else {
-			alarm_set(kAlarmDataAccessErrorID);
+			//alarm_set(kAlarmDataAccessErrorID);
 		}
 	}
 }
@@ -269,7 +269,7 @@ void data_on_write_error(DataID write_data_id, int error_code, uint8_t notify_er
 				kLogEventDataWriteError,
 				write_data_id, error_code);
 		}
-		alarm_set(kAlarmDataAccessErrorID);
+		//alarm_set(kAlarmDataAccessErrorID);
 	}
 }
 

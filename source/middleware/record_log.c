@@ -86,8 +86,6 @@ static bool g_log_is_inited = false;
 /************************************************
 * Function 
 ************************************************/
-
-
 void record_log_init() {
 	ssz_traceln("record log init begin");
 	

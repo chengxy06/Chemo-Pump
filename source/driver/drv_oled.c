@@ -12,10 +12,6 @@
 #include "ssz_common.h"
 #include "dev_def.h"
 #include "ssz_gpio.h"
-#ifdef SSZ_TARGET_SIMULATOR
-#define __NOP()
-#endif
-
 
 /************************************************
 * Declaration

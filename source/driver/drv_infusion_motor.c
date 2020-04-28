@@ -39,20 +39,12 @@ int g_infusion_motor_is_IN1_pin_as_PWM = false;
 void drv_infusion_motor_sleep_enable()
 {
   ssz_gpio_clear(SZ_MOTOR_SLEEP_GPIO_Port, SZ_MOTOR_SLEEP_Pin);
-#ifdef SSZ_TARGET_SIMULATOR
-  sim_timer_clear("infusion_motor");
-  sim_timer_clear("infusion_motor_optical");
-#endif
 }
 
 //disable infusion motor sleep
 void drv_infusion_motor_sleep_disable()
 {
   ssz_gpio_set(SZ_MOTOR_SLEEP_GPIO_Port, SZ_MOTOR_SLEEP_Pin);
-#ifdef SSZ_TARGET_SIMULATOR
-  sim_timer_set("infusion_motor", 20, 1);
-  sim_timer_set("infusion_motor_optical", 100, 1);
-#endif
 }
 #if	INFUSION_MOTOR_MOVE_FOR_PWM_ENABLE == 1
 void drv_infusion_motor_change_IN1_as_GPIO(){
@@ -87,7 +79,7 @@ void drv_infusion_motor_change_IN1_as_PWM(){
 //set infusion motor move forward
 void drv_infusion_motor_move_forward(int duty_cycle)
 {
-    drv_three_valve_motor_init();
+    //drv_three_valve_motor_init();
 
 #if INFUSION_MOTOR_MOVE_FOR_PWM_ENABLE == 1
    drv_infusion_motor_change_IN1_as_PWM();

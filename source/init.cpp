@@ -41,11 +41,10 @@
 #include "stop_watch.h"
 #include "param.h"
 
-
 //#app
 #include "app_cmd.h"
 #include "app_mcu_comm.h"
-
+#include "app_infusion_monitor.h"
 /************************************************
 * Declaration
 ************************************************/
@@ -62,15 +61,11 @@ void init_common() {
 	set_module_output(kModuleCommon, true);
 	set_module_output(kModuleMotor, true);
 	set_module_output(kModuleScreen, true);
-	//set_module_output(kModuleInfusionMonitor, true);
 #else
 #if STOP_WATCH_MODULE_ENABLE
 	stop_watch_disable();
 #endif
 #endif
-
-	//init simple alloc
-	//salloc_config();
 
 	//init system language and country region
 	ssz_locale_set_lang(kSszLangSimplifiedChinese);
@@ -121,7 +116,7 @@ void init_middleware(){
 	ssz_traceln("init middleware");
 
 	msg_init();
-	alarm_init();
+	
 	rtc_init_time_if_not_set(NULL);
 	stop_watch_init();
 	mid_adc_init();	
@@ -163,8 +158,11 @@ void init_middleware(){
 
 void init_app()
 {
+  ssz_traceln("init app");
+
   app_cmd_init(  );
-  app_mcu_comm_init();
+  app_mcu_comm_init(); 
+
 }
 
 void init_all()

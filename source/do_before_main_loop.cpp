@@ -2,7 +2,6 @@
 #include "init.h"
 #include "mid_rtc.h"
 #include "key.h"
-#include "alarm.h"
 #include "ui.h"
 #include "ui_view.h"
 #include "ui_common.h"
@@ -73,7 +72,9 @@ extern "C" void do_before_main_loop() {
 	ssz_delay_us(100);
 #ifdef SSZ_TARGET_MACHINE
  	int RCC_CSR_register = RCC->CSR;
-	// 正常为复位 RCC_CSR_register  		0XC000000
+	
+        
+        //check if reset trigerd by poweron
 	ssz_traceln("RCC_CSR register = 0X%X", RCC_CSR_register);
     
 	if(RCC_CSR_register != 0XC000000)
@@ -93,7 +94,7 @@ extern "C" void do_before_main_loop() {
 		key_set_hold_time(kKeyBack, KEY_HOLD_TIME_MS);
 	} else {
 		//reset by slave
-		alarm_set(kAlarmMasterMCUErrorID);
+		//alarm_set(kAlarmMasterMCUErrorID);
 		ssz_traceln("reset by slave");		
 		record_log_add_with_data(kOperationLog, LOG_EVENT_TYPE_ALARM,
 			kLogEventMasterMcuResetByslaver, NULL, 0);		

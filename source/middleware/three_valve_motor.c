@@ -70,12 +70,8 @@ bool three_valve_motor_move_to_position(int is_to_a)
 	bool ret = true;
 	bool is_pos_detected = false;
 
-
-    //drv_three_valve_pos_detect_pwr_enable();
-	//ssz_delay_us(100);
-
     if (drv_three_valve_is_pos_a_detected() && drv_three_valve_is_pos_b_detected()) {
-        alarm_set(kAlarmThreeValveMotorStuckID);
+        //alarm_set(kAlarmThreeValveMotorStuckID);
         return false;
     }
 		
@@ -88,13 +84,9 @@ bool three_valve_motor_move_to_position(int is_to_a)
 
 
 		if (is_to_a) {
-			record_log_add_with_data(kHistoryLog, LOG_EVENT_TYPE_INFUSION,
-				kLogEventChangeToBigBag, NULL, 0);
 			three_valve_motor_start(kBackward, -1, NULL);
 		}
 		else {
-			record_log_add_with_data(kHistoryLog, LOG_EVENT_TYPE_INFUSION,
-				kLogEventChangeToSmallBag, NULL, 0);
 			three_valve_motor_start(kForward, -1, NULL);
 		}
 
@@ -165,7 +157,7 @@ bool three_valve_motor_move_to_position(int is_to_a)
 				record_log_add_with_one_int(kOperationLog, LOG_EVENT_TYPE_ERROR,
 					kLogEventThreeValveMotorDirectionError,
 					g_infusion_motor_encoder);
-				alarm_set(kAlarmThreeValveMotorDirectionErrorID);
+				//alarm_set(kAlarmThreeValveMotorDirectionErrorID);
 				stop_cause = MOTOR_STOP_BY_DIRECTION_WRONG;
 				ret = false;
 				break;
@@ -189,7 +181,7 @@ bool three_valve_motor_move_to_position(int is_to_a)
        				record_log_add_with_one_int(kOperationLog, LOG_EVENT_TYPE_ERROR,
     					kLogEventThreeValveMotorNotFindPos,
     					g_three_valve_motor_encoder);
-    				alarm_set(kAlarmThreeValveMotorNotFindPos);
+    				//alarm_set(kAlarmThreeValveMotorNotFindPos);
     				ret =false;
     				stop_cause = MOTOR_STOP_CUSTOM_CAUSE_START+ kAlarmThreeValveMotorNotFindPos; 	                 
                 }
@@ -217,7 +209,7 @@ bool three_valve_motor_move_to_position(int is_to_a)
 						kLogEventThreeValveMotorCurrentTooLarge,
 						voltage_ad,
 						g_three_valve_motor_encoder);
-					alarm_set(kAlarmThreeValveMotorCurrentTooLargeID);
+					//alarm_set(kAlarmThreeValveMotorCurrentTooLargeID);
 					ret = false;
 					break;
 				}
@@ -282,7 +274,7 @@ void three_valve_motor_run_check() {
                 } else {
                     g_three_valve_battery_low_encoder_error_counter = 0;
                     three_valve_motor_stop(MOTOR_STOP_BY_STUCK);
-                    alarm_set(kAlarmThreeValveMotorStuckID);
+                    //alarm_set(kAlarmThreeValveMotorStuckID);
                 }
             }
 		}
@@ -436,12 +428,12 @@ void three_valve_motor_on_finish_target() {
 }
 void three_valve_motor_on_direction_wrong() {
 	three_valve_motor_stop(MOTOR_STOP_BY_DIRECTION_WRONG);
-	alarm_set(kAlarmThreeValveMotorDirectionErrorID);
+	//alarm_set(kAlarmThreeValveMotorDirectionErrorID);
 }
 void three_valve_motor_init()
 {
-	timer_set_handler(kTimerThreeValveMotorCheck, three_valve_motor_run_check);
-	event_set_handler(kEventThreeValveMotorFinishTarget, three_valve_motor_on_finish_target);
-	event_set_handler(kEventThreeValveMotorDirectionWrong, three_valve_motor_on_direction_wrong);
+  timer_set_handler(kTimerThreeValveMotorCheck, three_valve_motor_run_check);
+  event_set_handler(kEventThreeValveMotorFinishTarget, three_valve_motor_on_finish_target);
+  event_set_handler(kEventThreeValveMotorDirectionWrong, three_valve_motor_on_direction_wrong);
 }
 

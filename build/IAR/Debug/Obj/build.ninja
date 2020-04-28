@@ -122,8 +122,6 @@ build event.pbi : index event.xcl
 build msg.pbi : index msg.xcl
 build stop_watch.pbi : index stop_watch.xcl
 build timer.pbi : index timer.xcl
-build alarm.pbi : index alarm.xcl
-build alarm_play.pbi : index alarm_play.xcl
 build com.pbi : index com.xcl
 build data.pbi : index data.xcl
 build display.pbi : index display.xcl
@@ -225,15 +223,14 @@ build Chemo-PumpV1_0_master_part3.pbi : link ssz_i2c.pbi ssz_list.pbi ssz_locale
 build Chemo-PumpV1_0_master_part4.pbi : link ssz_tick_time.pbi ssz_time.pbi ssz_time_utility.pbi ssz_timer.pbi ssz_uart.pbi ssz_utility.pbi ssz_vector.pbi ui_draw_base.pbi ui_dynamic_list.pbi ui_image.pbi ui_image_list.pbi ui_lable.pbi ui_list_base.pbi ui_normal_list_base.pbi
 build Chemo-PumpV1_0_master_part5.pbi : link ui_number_edit.pbi ui_page_control.pbi ui_progress_bar.pbi ui_text_base.pbi ui_text_list.pbi ui_window.pbi ui_view.pbi ui_disp_text.pbi ui_draw.pbi ui_draw_img.pbi ui_utility.pbi common.pbi dev_def.pbi drv_com.pbi
 build Chemo-PumpV1_0_master_part6.pbi : link drv_infusion_motor.pbi drv_interrupt.pbi drv_isd2360.pbi drv_key.pbi drv_lowpower.pbi drv_oled.pbi drv_rtc.pbi drv_sst25_flash.pbi drv_stf_motor.pbi app_cmd.pbi app_common.pbi app_mcu_comm.pbi cpu_usage.pbi dtimer.pbi
-build Chemo-PumpV1_0_master_part7.pbi : link event.pbi msg.pbi stop_watch.pbi timer.pbi alarm.pbi alarm_play.pbi com.pbi data.pbi display.pbi infusion_motor.pbi key.pbi led.pbi mid_adc.pbi mid_common.pbi
-build Chemo-PumpV1_0_master_part8.pbi : link mid_rtc.pbi param.pbi pill_box_install_detect.pbi pressure_bubble_sensor.pbi record_log.pbi record_log_text.pbi simple_alloc.pbi sys_power.pbi three_valve_motor.pbi vibrater_motor.pbi voice.pbi dengxian_regular_14.pbi heiti_regular_60.pbi heiti_regular_88.pbi
-build Chemo-PumpV1_0_master_part9.pbi : link AC.pbi battery_AC.pbi battery_empty.pbi battery_full.pbi battery_no.pbi battery_one.pbi battery_three.pbi battery_two.pbi error.pbi exhaust.pbi exhaust_pause.pbi exhaust_run.pbi flush_max_dose_selected.pbi flush_max_dose_unselected.pbi
-build Chemo-PumpV1_0_master_part10.pbi : link history_log.pbi info_select.pbi info_unselect.pbi infusion_pause.pbi infusion_run.pbi infusion_stop.pbi left_arrow.pbi lock.pbi logo.pbi mode_selected.pbi mode_unselected.pbi mute.pbi mute_small.pbi new_task.pbi
-build Chemo-PumpV1_0_master_part11.pbi : link peak_set_select.pbi peak_set_unselect.pbi right_arrow.pbi select_1.pbi select_2.pbi selected_pointer.pbi set_arrow.pbi sound_pause.pbi stop_infusion.pbi system_setting.pbi time_select.pbi time_unselect.pbi unselected_pointer.pbi warning.pbi
-build Chemo-PumpV1_0_master_part12.pbi : link warning_common.pbi font_data.pbi image_data.pbi string_data.pbi ui_list_pos_indicator.pbi ui_statusbar.pbi screen.pbi ui_common.pbi do_before_main_loop.pbi init.pbi main_run.pbi run_test_after_main.pbi version.pbi greatest.pbi
-build Chemo-PumpV1_0_master_part13.pbi : link run_all_test_suite.pbi run_test.pbi test_app_sleep.pbi test_data.pbi test_drv_lowpower.pbi test_drv_oled.pbi test_drv_rtc.pbi test_drv_sst25_flash.pbi test_hardware_ljl.pbi test_record_log.pbi test_ssz_algorithm.pbi test_ssz_str_utility.pbi test_ssz_time.pbi test_ssz_time_utility.pbi
-build Chemo-PumpV1_0_master_part14.pbi : link test_ui.pbi test_ui_view.pbi
-build Chemo-PumpV1_0_master.pbd : link Chemo-PumpV1_0_master_part0.pbi Chemo-PumpV1_0_master_part1.pbi Chemo-PumpV1_0_master_part2.pbi Chemo-PumpV1_0_master_part3.pbi Chemo-PumpV1_0_master_part4.pbi Chemo-PumpV1_0_master_part5.pbi Chemo-PumpV1_0_master_part6.pbi Chemo-PumpV1_0_master_part7.pbi Chemo-PumpV1_0_master_part8.pbi Chemo-PumpV1_0_master_part9.pbi Chemo-PumpV1_0_master_part10.pbi Chemo-PumpV1_0_master_part11.pbi Chemo-PumpV1_0_master_part12.pbi Chemo-PumpV1_0_master_part13.pbi Chemo-PumpV1_0_master_part14.pbi
+build Chemo-PumpV1_0_master_part7.pbi : link event.pbi msg.pbi stop_watch.pbi timer.pbi com.pbi data.pbi display.pbi infusion_motor.pbi key.pbi led.pbi mid_adc.pbi mid_common.pbi mid_rtc.pbi param.pbi
+build Chemo-PumpV1_0_master_part8.pbi : link pill_box_install_detect.pbi pressure_bubble_sensor.pbi record_log.pbi record_log_text.pbi simple_alloc.pbi sys_power.pbi three_valve_motor.pbi vibrater_motor.pbi voice.pbi dengxian_regular_14.pbi heiti_regular_60.pbi heiti_regular_88.pbi AC.pbi battery_AC.pbi
+build Chemo-PumpV1_0_master_part9.pbi : link battery_empty.pbi battery_full.pbi battery_no.pbi battery_one.pbi battery_three.pbi battery_two.pbi error.pbi exhaust.pbi exhaust_pause.pbi exhaust_run.pbi flush_max_dose_selected.pbi flush_max_dose_unselected.pbi history_log.pbi info_select.pbi
+build Chemo-PumpV1_0_master_part10.pbi : link info_unselect.pbi infusion_pause.pbi infusion_run.pbi infusion_stop.pbi left_arrow.pbi lock.pbi logo.pbi mode_selected.pbi mode_unselected.pbi mute.pbi mute_small.pbi new_task.pbi peak_set_select.pbi peak_set_unselect.pbi
+build Chemo-PumpV1_0_master_part11.pbi : link right_arrow.pbi select_1.pbi select_2.pbi selected_pointer.pbi set_arrow.pbi sound_pause.pbi stop_infusion.pbi system_setting.pbi time_select.pbi time_unselect.pbi unselected_pointer.pbi warning.pbi warning_common.pbi font_data.pbi
+build Chemo-PumpV1_0_master_part12.pbi : link image_data.pbi string_data.pbi ui_list_pos_indicator.pbi ui_statusbar.pbi screen.pbi ui_common.pbi do_before_main_loop.pbi init.pbi main_run.pbi run_test_after_main.pbi version.pbi greatest.pbi run_all_test_suite.pbi run_test.pbi
+build Chemo-PumpV1_0_master_part13.pbi : link test_app_sleep.pbi test_data.pbi test_drv_lowpower.pbi test_drv_oled.pbi test_drv_rtc.pbi test_drv_sst25_flash.pbi test_hardware_ljl.pbi test_record_log.pbi test_ssz_algorithm.pbi test_ssz_str_utility.pbi test_ssz_time.pbi test_ssz_time_utility.pbi test_ui.pbi test_ui_view.pbi
+build Chemo-PumpV1_0_master.pbd : link Chemo-PumpV1_0_master_part0.pbi Chemo-PumpV1_0_master_part1.pbi Chemo-PumpV1_0_master_part2.pbi Chemo-PumpV1_0_master_part3.pbi Chemo-PumpV1_0_master_part4.pbi Chemo-PumpV1_0_master_part5.pbi Chemo-PumpV1_0_master_part6.pbi Chemo-PumpV1_0_master_part7.pbi Chemo-PumpV1_0_master_part8.pbi Chemo-PumpV1_0_master_part9.pbi Chemo-PumpV1_0_master_part10.pbi Chemo-PumpV1_0_master_part11.pbi Chemo-PumpV1_0_master_part12.pbi Chemo-PumpV1_0_master_part13.pbi
 build Chemo-PumpV1_0_master.pbw : browsedata Chemo-PumpV1_0_master.pbd
 
 

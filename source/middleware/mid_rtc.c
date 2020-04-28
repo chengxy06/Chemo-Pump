@@ -38,49 +38,47 @@ static int g_rtc_recheck_count = 0;
 void rtc_start_scan( )
 {
     timer_set_handler(kTimerScanRTC, rtc_scan);
-	timer_start_periodic_every(kTimerScanRTC, RTC_SCAN_TIME_MS);
-	rtc_scan();
+    timer_start_periodic_every(kTimerScanRTC, RTC_SCAN_TIME_MS);
+    rtc_scan();
 
     g_rtc_check_last_time_ms = ssz_tick_time_now();
 }
 
 void rtc_stop_scan()
 {
-	timer_stop(kTimerScanRTC);
+    timer_stop(kTimerScanRTC);
 }
 
+//scan time to check if time is change. use for app timer event
 void rtc_scan( )
 {
-	SszDateTime rtc;
+    SszDateTime rtc;
 
-#ifdef SSZ_TARGET_MACHINE
-	drv_rtc_get_time_all(&rtc);
-#else
-	ssz_seconds_to_time(sim_rtc_get_seconds(), &rtc);
-#endif
-	if (memcmp(&rtc, &g_rtc_time, sizeof(g_rtc_time)) != 0) {
-		g_rtc_time = rtc;
-		if (!msg_is_exist(kMsgTimeChanged)) {
-			msg_post_int(kMsgTimeChanged, 0);
-		}
-	}
+    drv_rtc_get_time_all(&rtc);
+
+    if (memcmp(&rtc, &g_rtc_time, sizeof(g_rtc_time)) != 0) {
+            g_rtc_time = rtc;
+            if (!msg_is_exist(kMsgTimeChanged)) {
+                    msg_post_int(kMsgTimeChanged, 0);
+            }
+    }
     //check if rtc is working, time goes on
     if (ssz_tick_time_elapsed(g_rtc_check_last_time_ms) >= RTC_CHECK_PERIOD_TIME_MS) {
         g_rtc_check_last_time_ms = ssz_tick_time_now();
         
+        //if time is not change, need to make sure RTC working rightly.
         if (memcmp(&rtc, &g_rtc_time_check, sizeof(g_rtc_time_check)) == 0 ) {
             if (g_rtc_recheck_count < 2) {
                 drv_rtc_start();
                 g_rtc_recheck_count++;
             } else {
                 g_rtc_recheck_count = 0;
-			    common_printfln("rtc error!\n");;	
-			    alarm_set(kAlarmRTCErrorID);
+                common_printfln("rtc error!\n");;	
+                //alarm_set(kAlarmRTCErrorID);
             }
     	}
         g_rtc_time_check = rtc;
     }
-
 }
 
 const SszDateTime* rtc_get()
@@ -101,11 +99,9 @@ void rtc_set(const SszDateTime *in_time) {
 	tmp = *in_time;
 
 	tmp.weekday = ssz_week_day(tmp.year, tmp.month, tmp.day);
-#if SSZ_TARGET_MACHINE
+
 	drv_rtc_set_time_all(&tmp);
-#else
-	sim_rtc_set_seconds(ssz_time_to_seconds(in_time));
-#endif
+
 	rtc_scan();
 }
 
@@ -142,7 +138,6 @@ void rtc_init_time_if_not_set(const SszDateTime *in_time) {
 	temp.hour = 0 ;
 	temp.minute = 0 ;
 	temp.second = 1 ;	
-#if SSZ_TARGET_MACHINE  
 	drv_rtc_get_time_all(&g_rtc_time);
 //if((g_rtc_time.year == 2001)&&
 //	(g_rtc_time.month == 1)&&
@@ -171,10 +166,5 @@ if((g_rtc_time.year == 2048)||
 		g_rtc_time.second = 0;
 		rtc_set_time(&temp);		
 	}
-#else
-	SIMDateTime info = sim_get_now_time();
-	memcpy(&g_rtc_time,(SszDateTime*)&info, sizeof(g_rtc_time));
-	sim_rtc_set_seconds(ssz_time_to_seconds((SszDateTime*)&info));
-#endif
 }
 #endif

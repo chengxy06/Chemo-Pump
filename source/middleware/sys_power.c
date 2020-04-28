@@ -51,8 +51,6 @@ void sys_power_wake_up_slaver()
 	sys_power_wake_up_slaver_pin_low();
 	ssz_delay_ms(3);
 	sys_power_wake_up_slaver_pin_high();
-	//timer_set_handler(kTimerWakeUpSlaverMcutime, sys_power_wake_up_slaver_pin_high);
-	//timer_start_oneshot_after(kTimerWakeUpSlaverMcutime, WAKE_UP_SLAVER_PLUS_TIME_MS);	
 }
 
 void sys_power_ADC_enable()
@@ -85,9 +83,6 @@ void sys_power_enable()
 void sys_power_disable()
 {
     ssz_gpio_clear(SYS_PWR_COM_PORT,SYS_PWR_EN_PIN);
-#ifdef SSZ_TARGET_SIMULATOR
-	sim_power_off();
-#endif
 }
 
 // 
@@ -152,5 +147,3 @@ BatteryLevel sys_power_battery_level(BatteryEnvironment power_environment)
 
     return batt_lvl;
 }
-
-

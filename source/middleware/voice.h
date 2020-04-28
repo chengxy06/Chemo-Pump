@@ -76,26 +76,6 @@ void voice_set_volume(VoiceVolume volume);
 //stop the channel voice
 void voice_stop_play_current_channel(VoiceChannelControl channel);
 
-void voice_stop_play_beep_channel();
-
-void voice_stop_play_low_channel();
-
-void voice_stop_play_high_channel();
-
-void voice_play_beep_once();
-
-void voice_play_low_once();
-
-void voice_play_high_once();
-
-void voice_play_beep_cycle();
-
-void voice_play_low_cycle();
-
-void voice_play_high_cycle();
-
-
-
 #ifdef __cplusplus
 }
 #endif

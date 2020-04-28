@@ -3926,13 +3926,7 @@
                 <name>$PROJ_DIR$\..\..\source\common\common.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\common\common.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\common\dev_def.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\common\dev_def.h</name>
             </file>
         </group>
         <group>
@@ -3941,61 +3935,31 @@
                 <name>$PROJ_DIR$\..\..\source\driver\drv_com.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\driver\drv_com.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\driver\drv_infusion_motor.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\driver\drv_infusion_motor.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\driver\drv_interrupt.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\driver\drv_interrupt.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\driver\drv_isd2360.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\driver\drv_isd2360.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\driver\drv_key.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\driver\drv_key.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\driver\drv_lowpower.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\driver\drv_lowpower.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\driver\drv_oled.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\driver\drv_oled.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\driver\drv_rtc.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\driver\drv_rtc.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\driver\drv_sst25_flash.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\driver\drv_sst25_flash.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\driver\drv_stf_motor.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\driver\drv_stf_motor.h</name>
             </file>
         </group>
         <group>
@@ -4052,133 +4016,61 @@
                 </file>
             </group>
             <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\alarm.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\alarm.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\alarm_play.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\alarm_play.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\com.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\com.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\data.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\data.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\display.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\display.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\infusion_motor.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\infusion_motor.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\key.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\key.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\led.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\led.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\mid_adc.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\mid_adc.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\mid_common.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\mid_common.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\mid_rtc.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\mid_rtc.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\param.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\param.h</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\param_internal.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\pill_box_install_detect.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\pill_box_install_detect.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\pressure_bubble_sensor.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\pressure_bubble_sensor.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\record_log.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\record_log.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\record_log_text.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\record_log_text.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\simple_alloc.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\simple_alloc.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\sys_power.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\sys_power.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\three_valve_motor.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\three_valve_motor.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\vibrater_motor.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\vibrater_motor.h</name>
-            </file>
-            <file>
                 <name>$PROJ_DIR$\..\..\source\middleware\voice.c</name>
-            </file>
-            <file>
-                <name>$PROJ_DIR$\..\..\source\middleware\voice.h</name>
             </file>
         </group>
         <group>

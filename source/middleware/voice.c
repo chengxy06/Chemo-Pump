@@ -73,7 +73,7 @@ void voice_play_once(VoiceElementIndex index, VoiceChannelControl channel)
 {
     uint8_t voice_index, voice_channel;
 	
-	voice_device_open();
+    voice_device_open();
 
     //只能传递音元索引
     ssz_assert(index < kVoiceIndexMax);
@@ -181,53 +181,3 @@ void voice_stop_play_current_channel(VoiceChannelControl channel)
 
     drv_isd2360_stop(voice_channel);
 }
-
-void voice_stop_play_beep_channel()
-{
-    voice_stop_play_current_channel(kVoiceBeepChannel);
-}
-
-void voice_stop_play_low_channel()
-{
-    voice_stop_play_current_channel(kVoiceLowChannel);
-}
-
-void voice_stop_play_high_channel()
-{
-    voice_stop_play_current_channel(kVoiceHighChannel);
-}
-
-//play beep immediately and return at once
-void voice_play_beep_once()
-{
-    voice_play_once(kVoiceBeepIndex,kVoiceBeepChannel);
-}
-
-void voice_play_low_once()
-{
-    voice_play_once(kVoiceLowIndex,kVoiceLowChannel);
-}
-
-void voice_play_high_once()
-{
-    voice_play_once(kVoiceHighIndex,kVoiceHighChannel);
-}
-
-void voice_play_beep_cycle()
-{
-    voice_play_cycle(kVoiceBeepMacroIndex,kVoiceBeepChannel);
-}
-
-void voice_play_low_cycle()
-{
-    voice_play_cycle(kVoiceLowMacroIndex,kVoiceLowChannel);
-}
-
-void voice_play_high_cycle()
-{
-    voice_play_cycle(kVoiceHighMacroIndex,kVoiceHighChannel);
-}
-
-
-
-

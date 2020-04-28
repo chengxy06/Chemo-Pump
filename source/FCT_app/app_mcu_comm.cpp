@@ -106,7 +106,7 @@ void app_mcu_comm_analysis_from_slave(TsUartCommand usart_data)
 				usart_data.data1,
 				g_infusion_motor_encoder);
 			 infusion_motor_stop(usart_data.data1);
-			alarm_set(kAlarmInfuMotorErrorBySlaverID);
+			//alarm_set(kAlarmInfuMotorErrorBySlaverID);
 		break;	
 		
 		case COMM_SLAVER_MCU_SLEEP:			

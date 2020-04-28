@@ -119,10 +119,6 @@ void main_run(void)
 	main_init_event_handler();
 
 	ssz_traceln("%s power on.", version_software_name());
-#ifdef TEST
-	run_unit_test();
-#endif
-
 	//do after init, before enter main loop
 	do_before_main_loop();
 

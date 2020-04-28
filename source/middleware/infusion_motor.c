@@ -119,7 +119,7 @@ void infusion_motor_run_check() {
                         ssz_tick_time_elapsed(g_infusion_motor_check_last_encoder_time), 
                         g_infusion_motor_encoder);
                     infusion_motor_stop(MOTOR_STOP_BY_STUCK);
-                    alarm_set(kAlarmInfuMotorStuckID);
+                    //alarm_set(kAlarmInfuMotorStuckID);
     			    motor_printfln("MOTOR_STOP_BY_STUCK\n");
                 }
             }
@@ -142,7 +142,7 @@ void infusion_motor_run_check() {
         				ssz_tick_time_elapsed(g_infusion_motor_check_last_encoder_time), 
         				g_infusion_motor_optical_coupler_encoder,g_infusion_motor_encoder);  
                     infusion_motor_stop(MOTOR_STOP_BY_OPTICAL_COUPLER_ERROR);
-                    alarm_set(kAlarmOpticalCouplerErrorID);
+                    //alarm_set(kAlarmOpticalCouplerErrorID);
     			    motor_printfln("MOTOR_STOP_BY_OPTICAL_COUPLER_ERROR\n");
                 }
             }
@@ -169,7 +169,7 @@ void infusion_motor_run_check() {
 					voltage_ad,
 					g_infusion_motor_encoder);
 				infusion_motor_stop(MOTOR_STOP_BY_CURRENT_TOO_LARGE);
-				alarm_set(kAlarmInfuMotorCurrentTooLargeID);//TODO:
+				//alarm_set(kAlarmInfuMotorCurrentTooLargeID);//TODO:
 			 }
 			 else{
 				 motor_printfln("motor current:%d=%dmv too large!", current_ad, voltage_ad);
@@ -194,25 +194,23 @@ void infusion_motor_monitor_stop() {
 //start infusion motor for the expected encoder in the set direction
 bool infusion_motor_start_internal(MotorDirection dir, int expect_encoder,int expect_optical_coupler_encoder, MotorStopHandler stop_handler)
 {
-	pressure_and_bubble_sensor_pwr_enable();
-
+//	pressure_and_bubble_sensor_pwr_enable();
 	g_infusion_motor_a_b_direction_error_total = 0;
-    g_infusion_motor_encoder = 0;
-    g_infusion_motor_expect_encoder = expect_encoder;
+        g_infusion_motor_encoder = 0;
+        g_infusion_motor_expect_encoder = expect_encoder;
 	g_infusion_motor_optical_coupler_encoder = 0;
 	g_infusion_motor_expect_optical_coupler_encoder = expect_optical_coupler_encoder;
-    g_infusion_motor_running_dir = dir;
+        g_infusion_motor_running_dir = dir;
 	g_infusion_motor_stop_cause = MOTOR_STOP_BY_USER;
 	g_infusion_motor_stop_handler = stop_handler;
 
 	g_infusion_motor_is_event_set = false;
 	g_infusion_motor_direction_error_count = 0;
 
- 
-//	drv_infusion_motor_brake();  加上不同硬件下 expect_encoder数有差异
+        //drv_infusion_motor_brake();  加上不同硬件下 expect_encoder数有差异
 
-    app_mcu_send_to_slave(COMM_MOTOR_START,dir,0);
-	ssz_delay_ms( 30 ); // 30
+        //app_mcu_send_to_slave(COMM_MOTOR_START,dir,0);
+	//ssz_delay_ms( 30 ); // 30
 
 	if (g_infusion_motor_state == kMotorRun) {
 		//need pause encoder count temporary for conflict
@@ -221,7 +219,7 @@ bool infusion_motor_start_internal(MotorDirection dir, int expect_encoder,int ex
 		g_infusion_motor_is_cannot_run = false;
 		msg_notify_int_at_once(kMSgBeforeInfusionMotorRun, expect_encoder);
 		if (g_infusion_motor_is_cannot_run){
-			app_mcu_send_to_slave(COMM_MOTOR_STOP,0,0); //disable infusion motor power at slave mcu 
+			//app_mcu_send_to_slave(COMM_MOTOR_STOP,0,0); //disable infusion motor power at slave mcu 
 			return false;
 		}
 		msg_post_int(kMSgInfusionMotorRun, expect_encoder);
@@ -364,7 +362,7 @@ void infusion_motor_on_direction_wrong() {
                 kLogEventMotorDirectionError,
                 g_infusion_motor_encoder);
             infusion_motor_stop(MOTOR_STOP_BY_DIRECTION_WRONG);
-            alarm_set(kAlarmInfuMotorDirectionErrorID);
+            //alarm_set(kAlarmInfuMotorDirectionErrorID);
             motor_printfln("MOTOR_STOP_BY_DIRECTION_ERROR\n");
         }
     }

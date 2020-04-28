@@ -40,6 +40,7 @@
 #include "drv_infusion_motor.h"
 #include "do_before_main_loop.h"
 #include "drv_rtc.h"
+#include "drv_sst25_flash.h"
 
 
 #ifdef CPU_USAGE_MODULE_ENABLE
@@ -568,7 +569,9 @@ return 0 ;
 int app_cmd_sensor_bubble(const char* cmd, char* params[], int param_size)
 {	
 	pressure_and_bubble_sensor_pwr_enable();
-
+         
+        ssz_delay_ms(200);
+        
 	if( pressure_bubble_sensor_is_generate_bubble() )
 	{
 		printf("true\n");
@@ -610,6 +613,7 @@ int app_cmd_ad(const char* cmd, char* params[], int param_size)
 int app_cmd_battery_voltage_adc(const char* cmd, char* params[], int param_size)
 {
   sys_power_ADC_enable();
+  ssz_delay_ms(200);
   int ad = mid_adc_get_ADC_channel_value(kSysPwrADC);
   int voltage = sys_power_battery_voltage();
   printf("%d mv\n",M_get_battery_voltage_from_adc(ad));
@@ -619,11 +623,89 @@ int app_cmd_battery_voltage_adc(const char* cmd, char* params[], int param_size)
 
 int app_cmd_pressure_adc(const char* cmd, char* params[], int param_size)
 {
-	pressure_and_bubble_sensor_pwr_enable();
-	int ad = mid_adc_get_ADC_channel_value(kPressureADC);
-	printf("pressure:%d=%dmv=%dkPa\n", ad, M_get_voltage_from_adc(ad), 
-	 	data_read_int(kDataOcclusionSlope)*(ad - pressure_adc_when_installed())/1000);
-return 0 ;
+    pressure_and_bubble_sensor_pwr_enable();
+    int ad = mid_adc_get_ADC_channel_value(kPressureADC);
+    printf("pressure:%d=%dmv=%dkPa\n", ad, M_get_voltage_from_adc(ad), 
+            data_read_int(kDataOcclusionSlope)*(ad - pressure_adc_when_installed())/1000);
+    return 0 ;
+}
+
+//flash erase
+int app_cmd_flash_erase(const char* cmd, char* params[], int param_size)
+{
+//  drv_sst25_pcb_sleep_disable();
+//  drv_sst25_flash_disable_Protected();	
+
+  drv_sst25_flash_erase_chip();
+  
+  printf("erase chip correct!\n");
+  
+  return 0;
+  
+}
+
+//flash write
+int app_cmd_flash_write(const char* cmd, char* params[], int param_size)
+{
+  //bool drv_sst25_flash_write(int32_t address, const void *buff, int buffer_len)
+  if( param_size < 3 )
+  {
+    printf("Please input right vlaue!\n");
+    return -1;
+  }
+  int32_t address;
+  int buffer_len;
+  char buff[1024];
+  
+  address = atoi(params[0]);
+  buffer_len = atoi(params[2]);
+  memset(buff,0,strlen(buff));
+  memcpy(buff,params[1],strlen(params[1]));
+
+//  drv_sst25_pcb_sleep_disable();
+//  drv_sst25_flash_disable_Protected();
+
+  if(drv_sst25_flash_write( address,buff,buffer_len) == false)  
+  {
+    printf("Flase write error!\n"); 
+  }
+  else
+  {
+    printf("Flase write %d bytes correct, The content is %s\n",buffer_len,buff); 
+  }
+  return 0;
+  
+}
+
+//flash read
+int app_cmd_flash_read(const char* cmd, char* params[], int param_size)
+{
+  //bool drv_sst25_flash_read(int32_t address, void *buff, int need_read_size)
+  if( param_size < 2 )
+  {
+    printf("Please input right vlaue!\n");
+    return -1;
+  }
+  int32_t address;
+  int buffer_len;
+  char buff[1024];
+  address = atoi(params[0]);
+  buffer_len = atoi(params[1]);
+  memset(buff,0,strlen(buff));
+  
+//  drv_sst25_pcb_sleep_disable();
+//  drv_sst25_flash_disable_Protected();	
+
+  if( drv_sst25_flash_read( address,buff,buffer_len ) == false )
+  {
+    printf("Read flash error!\n");   
+  }
+  else
+  {
+    printf("Read flash %d bytes correct. The content is %s \n",buffer_len,buff);
+  }
+  
+  return 0;
 }
 
 //output saved data and other you need know data
@@ -964,21 +1046,21 @@ static int app_cmd_clear_log(const char* cmd, char* params[], int param_size)
 {
     int i = 0;
 
-	if (param_size == 1)
-	{
-		i = atoi(params[0]);
-	}
-	
-	LogType log_type = app_cmd_print_and_get_log_type(i);    
-	if(log_type==kLogTypeMax) {
-		app_cmd_output_error_info(kInvalidParam);
-		return 0;
-	}
+    if (param_size == 1)
+    {
+            i = atoi(params[0]);
+    }
+    
+    LogType log_type = app_cmd_print_and_get_log_type(i);    
+    if(log_type==kLogTypeMax) {
+            app_cmd_output_error_info(kInvalidParam);
+            return 0;
+    }
 
-	printf(" clear\n");
-	record_log_clear(log_type);
+    printf(" clear\n");
+    record_log_clear(log_type);
 
-	return 0;
+    return 0;
 }
 
 //test write more than max log 
@@ -1116,57 +1198,117 @@ int app_cmd_write_nvram(const char* cmd, char* params[], int param_size) {
 	}
 }
 
-#if UI_MODULE_ENABLE
-static int app_cmd_test_ui(const char* cmd, char* params[], int param_size)
+//#if UI_MODULE_ENABLE
+//static int app_cmd_test_ui(const char* cmd, char* params[], int param_size)
+//{
+//	ui_set_canvas_rect(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
+//	printf("LCD all white\n");
+//	ui_set_fill_color(UI_WHITE);
+//#if STOP_WATCH_MODULE_ENABLE
+//	int stop_watch_index;
+//	stop_watch_start();
+//#endif
+//#if STOP_WATCH_MODULE_ENABLE
+//	stop_watch_index = stop_watch_child_start("fill");
+//#endif
+//	ui_fill_rect_at(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
+//#if STOP_WATCH_MODULE_ENABLE
+//	stop_watch_child_stop(stop_watch_index);
+//#endif
+//#if STOP_WATCH_MODULE_ENABLE
+//	stop_watch_index = stop_watch_child_start("flush");
+//#endif
+//	display_flush_dirty();
+//#if STOP_WATCH_MODULE_ENABLE
+//	stop_watch_child_stop(stop_watch_index);
+//#endif
+//#if STOP_WATCH_MODULE_ENABLE
+//	stop_watch_stop();
+//	stop_watch_print();
+//#endif
+//	ssz_delay_ms_with_clear_watchdog(3000);
+//
+//	printf("LCD all black\n");
+//	ui_set_fill_color(UI_BLACK);
+//#if STOP_WATCH_MODULE_ENABLE
+//	stop_watch_start();
+//#endif
+//	ui_fill_rect_at(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
+//	display_flush_dirty();
+//#if STOP_WATCH_MODULE_ENABLE
+//	stop_watch_stop();
+//	stop_watch_print();
+//#endif
+//	ssz_delay_ms_with_clear_watchdog(3000);
+//
+//	return 0;
+//}
+//#endif
+
+static int app_cmd_olcd_test(const char* cmd, char* params[], int param_size)
 {
-	ui_set_canvas_rect(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
-	printf("LCD all white\n");
-	ui_set_fill_color(UI_WHITE);
-#if STOP_WATCH_MODULE_ENABLE
-	int stop_watch_index;
-	stop_watch_start();
-#endif
-#if STOP_WATCH_MODULE_ENABLE
-	stop_watch_index = stop_watch_child_start("fill");
-#endif
-	ui_fill_rect_at(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
-#if STOP_WATCH_MODULE_ENABLE
-	stop_watch_child_stop(stop_watch_index);
-#endif
-#if STOP_WATCH_MODULE_ENABLE
-	stop_watch_index = stop_watch_child_start("flush");
-#endif
-	display_flush_dirty();
-#if STOP_WATCH_MODULE_ENABLE
-	stop_watch_child_stop(stop_watch_index);
-#endif
-#if STOP_WATCH_MODULE_ENABLE
-	stop_watch_stop();
-	stop_watch_print();
-#endif
-	ssz_delay_ms_with_clear_watchdog(3000);
+  int i = 10 ;
+  int type = 10;
+  printf("LCD test start!\n");
+  char text[] = "We will start LCD test programe!\n";
+  ui_disp_text_at(10,20,text);
 
-	printf("LCD all black\n");
-	ui_set_fill_color(UI_BLACK);
-#if STOP_WATCH_MODULE_ENABLE
-	stop_watch_start();
-#endif
-	ui_fill_rect_at(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
-	display_flush_dirty();
-#if STOP_WATCH_MODULE_ENABLE
-	stop_watch_stop();
-	stop_watch_print();
-#endif
-	ssz_delay_ms_with_clear_watchdog(3000);
+  while( i -- )
+  {
+    ui_set_canvas_rect(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
+    
+    ssz_delay_ms(500);
+    ui_set_fill_color(UI_BLACK);
+    ui_fill_rect_at(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
+    display_flush_dirty();
+   
+    ssz_delay_ms(500);  
+    ui_set_fill_color(UI_WHITE);
+    ui_fill_rect_at(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
+    display_flush_dirty();
+         
 
-	return 0;
+  }  
+  
+  i = 500 ;
+  while( i -- )
+  {
+    ssz_delay_ms(10);
+    drv_oled_set_contrast_current((uint8_t)type);
+    type += 10 ;
+    if( type > 255 )
+    {
+      type = 0 ; 
+      ssz_delay_ms(500);
+    }
+      
+  }
+  
+  drv_oled_set_contrast_current(255);
+  
+  i = 128 ;
+  while( i > 0 )
+  {
+    ui_set_fill_color(UI_BLACK);
+    ui_fill_rect_at(0, 0, DISPLAY_WIDTH, DISPLAY_HEIGHT);
+    display_flush_dirty();
+    //ssz_delay_ms(100);
+    ui_draw_img_at(i,0,get_image((ImgID)22));
+    ui_draw_img_at(i,32,get_image((ImgID)22));
+    display_flush_dirty();
+    ssz_delay_ms(100);
+    i -= 10 ;
+  }
+   
+  printf("LCD test finish!\n");
+  
+  return 0;
 }
-#endif
 #if UI_VIEW_MODULE_ENABLE
 //show view info 
 static int app_cmd_view_info(const char* cmd, char* params[], int param_size)
 {
-	ui_view_output_all_view_info();
+    ui_view_output_all_view_info();
 
     return 0;
 }
@@ -1322,9 +1464,24 @@ static int app_cmd_infusion_info(const char* cmd, char* params[], int param_size
 
 static int app_cmd_motor_run(const char* cmd, char* params[], int param_size)
 {
+	int encoder = -1;
+	if( param_size != 2 )
+	{
+		printf("Please input right value!\n");
+	}
 
-	drv_infusion_motor_move_forward_ex();
-
+	drv_infusion_motor_sleep_disable();
+	encoder = atoi(params[1]);
+       
+	if( strcmp(params[0],"Forward") == 0 )
+	{
+		infusion_motor_start(kForward, encoder, NULL);
+	}
+	else
+	{
+		infusion_motor_start(kBackward, encoder, NULL);	
+	}
+	
 	return 0;
 }
 
@@ -2400,7 +2557,7 @@ int app_cmd_clear_alarm(const char* cmd, char* params[], int param_size)
 {
 	int i;
 	for (i = kRemindAlarmStart; i < kHighestAlarmEnd; i++){
-		alarm_clear((AlarmID)(i));
+		//alarm_clear((AlarmID)(i));
 	}
  	return 0;
 }
@@ -2467,6 +2624,10 @@ const static AppCmdInfo g_app_cmd_info[] =
 	{"battery_voltage_adc", app_cmd_battery_voltage_adc, "show battery voltage adc value, xxx mv" },
 	{"pressure_adc", app_cmd_pressure_adc, "show pressure adc value" },
 
+        {"flash_erase", app_cmd_flash_erase, "flash erase whole chip" },
+        {"flash_write", app_cmd_flash_write, "write flash , usage: flash_write address buff buff_len" },
+        {"flash_read", app_cmd_flash_read, "read flash , usage: flash_read address buff_len " },
+        
 #if DATA_MODULE_ENABLE
 	{"data", app_cmd_data, "show saved data" },
 	{"data_change", app_cmd_change_data, "data_change x y , if x=1,encoder per mL,\n\t\t if x=2, occlusion slope,\n\t\t if x=3, occlusion one drop ADC,\n\t\t if x=4, battery offset"},
@@ -2507,7 +2668,7 @@ const static AppCmdInfo g_app_cmd_info[] =
 	{"write_nvram", app_cmd_write_nvram, "Usage: [hex_address] [str]" },
 #endif
 #if UI_MODULE_ENABLE
-	{"test_ui", app_cmd_test_ui, "test ui screen" },
+	{"olcd_test", app_cmd_olcd_test, "test ui screen" },
 #endif
 #if SCREEN_MODULE_ENABLE
 	{"show_screen", app_cmd_show_screen, "e.g. show_screen screen_id" },
@@ -2518,25 +2679,25 @@ const static AppCmdInfo g_app_cmd_info[] =
 	{"trace_view_draw", app_cmd_trace_view_draw, "trace ui view draw"},
 #endif
 
-	{"infusion_start", app_cmd_infusion_start, "start infuse, Usage: infusion_start speed [bag-a|bag-b] [volume],\n\t\t e.g.: infusion_start 10 bag-a 20"},
-	{"infusion_pause", app_cmd_infusion_pause, "pause infuse"},
-	{"infusion_resume", app_cmd_infusion_resume, "resume infuse"},
-	{"infusion_stop", app_cmd_infusion_stop, "stop infuse"},
-	{"infusion_info", app_cmd_infusion_info, "print current infusion info(status)"},
+    {"infusion_start", app_cmd_infusion_start, "start infuse, Usage: infusion_start speed [bag-a|bag-b] [volume],\n\t\t e.g.: infusion_start 10 bag-a 20"},
+    {"infusion_pause", app_cmd_infusion_pause, "pause infuse"},
+    {"infusion_resume", app_cmd_infusion_resume, "resume infuse"},
+    {"infusion_stop", app_cmd_infusion_stop, "stop infuse"},
+    {"infusion_info", app_cmd_infusion_info, "print current infusion info(status)"},
 
-	{"motor_run", app_cmd_motor_run, "Usage: [encoder], e.g.: motor_run, motor_run 50" },
-	{"motor_self_encoder", app_cmd_motor_self_encoder, "check motor self encoder value" },
-	{"motor_ext_encoder", app_cmd_motor_ext_encoder, "check motor externel encoder value" },
-		
-	{"motor_reverse", app_cmd_motor_reverse, "Usage: [encoder]" },
-	{"motor_run_ex", app_cmd_motor_run_ex, "run by optical coupler encoder, Usage: [optical_coupler_encoder]" },
-	{"motor_reverse_ex", app_cmd_motor_reverse_ex, "motor reverse by optical coupler encoder" },	
-	{"motor_stop", app_cmd_motor_stop, "Usage:motor_stop [three]" },
-	{"move_to", app_cmd_move_to, "move valve to position a or b, Usage: move_to [a|b]"},	
-	{"STF_motor_run", app_cmd_STF_motor_run, "move valve to position a or b, Usage: move_to [a|b]"},	
-	{"STF_position", app_cmd_STF_position, "check valve position, return value is A or B"},	
-	{"STF_encoder", app_cmd_STF_encoder, "check valve motor encoder value"},	
-			
+    {"motor_run", app_cmd_motor_run, "Usage: [encoder], e.g.: motor_run, motor_run 50" },
+    {"motor_self_encoder", app_cmd_motor_self_encoder, "check motor self encoder value" },
+    {"motor_ext_encoder", app_cmd_motor_ext_encoder, "check motor externel encoder value" },
+            
+    {"motor_reverse", app_cmd_motor_reverse, "Usage: [encoder]" },
+    {"motor_run_ex", app_cmd_motor_run_ex, "run by optical coupler encoder, Usage: [optical_coupler_encoder]" },
+    {"motor_reverse_ex", app_cmd_motor_reverse_ex, "motor reverse by optical coupler encoder" },	
+    {"motor_stop", app_cmd_motor_stop, "Usage:motor_stop [three]" },
+    {"move_to", app_cmd_move_to, "move valve to position a or b, Usage: move_to [a|b]"},	
+    {"STF_motor_run", app_cmd_STF_motor_run, "move valve to position a or b, Usage: move_to [a|b]"},	
+    {"STF_position", app_cmd_STF_position, "check valve position, return value is A or B"},	
+    {"STF_encoder", app_cmd_STF_encoder, "check valve motor encoder value"},	
+                    
     {"play", app_drv_isd2360_test_play, "play control,play x. \n\t\t x:1->play alarm high once, 2->isd2360 powerup, 3->isd2360 powerdown"
      "\n\t\t 4->drv_isd2360_pcb_power_disable, 5->drv_isd2360_pcb_power_enable"},
     {"music", app_drv_music, "music control,usage: music high,music middle,music low"},
@@ -2575,31 +2736,31 @@ const static AppCmdInfo g_app_cmd_info[] =
 	{"installed_pressure", app_cmd_installed_pressure,"installed pressure" },
 	{"test_lifetime", app_cmd_test_lifetime,"test_lifetime [big_bag_volume] [small_bag_volume] [speed]"},
 	{"wake_up_slaver", app_cmd_wake_up_slaver,"wake_up_slaver x. \n\t\t x:1->wake up slaver once, 2->wake up pin high, 3->wake up pin low" },
-    {"test_motor", app_cmd_test_motor, "test_motor x. \n\t\t x:1-> TIM3 INIT, x->2--500 PWM,"},
-    {"test_motor_cmd", app_cmd_test_motor_cmd, "test_motor_cmd x y; x-->for test item, y-->for param,"
-     "\n\t\t x->1 infusion start pwm, x->2 infusion pwm step num, \n\t\t x->3 three valve motor start pwm,"
-     "\n\t\t x->4 three valve motor pwm step num, \n\t\t x->5 infusion motor fre, \n\t\t x->6 infusion motor pwm duty cycle"},
+        {"test_motor", app_cmd_test_motor, "test_motor x. \n\t\t x:1-> TIM3 INIT, x->2--500 PWM,"},
+        {"test_motor_cmd", app_cmd_test_motor_cmd, "test_motor_cmd x y; x-->for test item, y-->for param,"
+         "\n\t\t x->1 infusion start pwm, x->2 infusion pwm step num, \n\t\t x->3 three valve motor start pwm,"
+         "\n\t\t x->4 three valve motor pwm step num, \n\t\t x->5 infusion motor fre, \n\t\t x->6 infusion motor pwm duty cycle"},
 	{"reset_slaver", app_cmd_reset_slaver,"" },
 	{"set_sn", app_cmd_write_sn,"set Serial Number, Usage: <SerialNumber>" },
 	{"clear_alarm", app_cmd_clear_alarm,"clear all alarms" },
 #if LOW_POWER_TEST_ENABLE
 	{"low_power_vioce_test", app_cmd_low_power_vioce_test,
 	 "low_power_vioce_test x y z; x->io mode, y->io high or low,z-> voice power on or off"
-     "\n\t\t\t x->1 gpio_mode_output_pp, x->2 gpio_mode_output_od, x->3 gpio_mode_af_pp,"
-     "\n\t\t\t x->4 gpio_mode_af_od, x->5 gpio_mode_input, x->6 gpio_mode_analog"
-     "\n\t\t\t y->1 out high, x->2 out low,"
-     "\n\t\t\t z->1 power off, z->2 power on,"},
+         "\n\t\t\t x->1 gpio_mode_output_pp, x->2 gpio_mode_output_od, x->3 gpio_mode_af_pp,"
+         "\n\t\t\t x->4 gpio_mode_af_od, x->5 gpio_mode_input, x->6 gpio_mode_analog"
+         "\n\t\t\t y->1 out high, x->2 out low,"
+         "\n\t\t\t z->1 power off, z->2 power on,"},
 
 	{"low_power_test", app_cmd_low_power_test,"low_power_test x y z m; x->io pin, y->Mode, z->Pull Speed,"
-     "m->high low"
-     "\n\t\t\t x->1 SSB_Pin, x->2 SCK_Pin, x->3 MISO_Pin,\n\t\t\t x->4 MOSI_Pin,x->5 RDY_Pin, x->6 INTB_Pin,"
-     "\n\t\t\t y->1 GPIO_MODE_OUTPUT_PP, y->2 GPIO_MODE_OUTPUT_OD, y->3 GPIO_MODE_AF_PP,"
-     "\n\t\t\t y->4 GPIO_MODE_AF_OD, y->5 GPIO_MODE_INPUT, y->6 GPIO_MODE_ANALOG,"
-     "\n\t\t\t z->1 SPEED_LOW Null, z->2 SPEED_LOW up, z->3 SPEED_LOW down,"
-     "\n\t\t\t z->4 SPI1 Null, z->5 SPI1 up, z->6 SPI1 down"
-	 "\n\t\t\t z->7 INPUT Null, z->8 INPUT up, z->9 INPUT down"
-	 "\n\t\t\t z->10 ANALOG Null, z->11 ANALOG up, z->12 ANALOG down"
-     "\n\t\t\t m->1 out high, m->2 out low,"},
+         "m->high low"
+         "\n\t\t\t x->1 SSB_Pin, x->2 SCK_Pin, x->3 MISO_Pin,\n\t\t\t x->4 MOSI_Pin,x->5 RDY_Pin, x->6 INTB_Pin,"
+         "\n\t\t\t y->1 GPIO_MODE_OUTPUT_PP, y->2 GPIO_MODE_OUTPUT_OD, y->3 GPIO_MODE_AF_PP,"
+         "\n\t\t\t y->4 GPIO_MODE_AF_OD, y->5 GPIO_MODE_INPUT, y->6 GPIO_MODE_ANALOG,"
+         "\n\t\t\t z->1 SPEED_LOW Null, z->2 SPEED_LOW up, z->3 SPEED_LOW down,"
+         "\n\t\t\t z->4 SPI1 Null, z->5 SPI1 up, z->6 SPI1 down"
+             "\n\t\t\t z->7 INPUT Null, z->8 INPUT up, z->9 INPUT down"
+             "\n\t\t\t z->10 ANALOG Null, z->11 ANALOG up, z->12 ANALOG down"
+         "\n\t\t\t m->1 out high, m->2 out low,"},
 #endif	
 	//below must at end
     {"", NULL}   
