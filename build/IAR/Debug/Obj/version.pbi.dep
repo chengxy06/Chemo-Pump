@@ -1,2 +1,3 @@
-version.pbi: D:\1-WORK\chemo_pump\Code\MasterMcu\source\version.c \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\source/version.h
+version.pbi: \
+  D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\source\version.c \
+  D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\source/version.h

@@ -1,1 +1,2 @@
-test_drv_rtc.pbi: D:\1-WORK\chemo_pump\Code\MasterMcu\test\test_drv_rtc.c
+test_drv_rtc.pbi: \
+  D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\test\test_drv_rtc.c

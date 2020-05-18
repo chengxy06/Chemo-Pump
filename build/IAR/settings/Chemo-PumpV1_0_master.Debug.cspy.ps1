@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.general.xcl" --backend -f "D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.general.xcl" --backend -f "D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.general.xcl" --debug_file=$debugfile --backend -f "D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.general.xcl" --debug_file=$debugfile --backend -f "D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.driver.xcl" 
 }

@@ -1,3 +1,3 @@
 ssz_simulator_bsp.pbi: \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\lib\ssz_micro_sys\bsp\simulator\ssz_simulator_bsp.c \
-  D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\ssz_config.h
+  D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\lib\ssz_micro_sys\bsp\simulator\ssz_simulator_bsp.c \
+  D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\build\IAR\..\..\config\ssz_config.h

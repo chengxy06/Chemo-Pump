@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.general.xcl" --backend -f "D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.general.xcl" --backend -f "D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.general.xcl" "--debug_file=%~1" --backend -f "D:\1-WORK\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.general.xcl" "--debug_file=%~1" --backend -f "D:\1-WORK\ProjectFiles\chemo_pump\Code\MasterMcu\build\IAR\settings\Chemo-PumpV1_0_master.Debug.driver.xcl" 
 
 @echo off 
 :end
