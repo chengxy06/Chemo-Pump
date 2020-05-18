@@ -1432,12 +1432,13 @@ static int app_cmd_motor_stop(const char* cmd, char* params[], int param_size)
 
 static int app_cmd_move_to(const char* cmd, char* params[], int param_size)
 {
-	if ((param_size > 0 && strcmp(params[0], "a")==0) ||
+
+	if ((param_size > 0 && strcmp(params[1], "a")==0) ||
 		param_size ==0 ){
 		printf("move to position a, big bag\n");
 		three_valve_motor_move_to_position_a();
 	}
-	else if (param_size>0 && strcmp(params[0],"b")==0) {
+	else if (param_size>0 && strcmp(params[1],"b")==0) {
 		printf("move to position b, small bag\n");
 		three_valve_motor_move_to_position_b();
 	}
@@ -1536,12 +1537,14 @@ static int app_drv_isd2360_test_play(const char* cmd, char* params[], int param_
 
 static int app_drv_music(const char* cmd, char* params[], int param_size)
 {	 
-	 if (param_size < 1) {
-		 app_cmd_output_error_info(kInvalidParam);
-		 return kInvalidParam;
-	 }
 
-	if ((strcmp(params[0], "high") == 0)) {
+	//three type music 
+	drv_isd2360_setvolume(20);
+	ssz_delay_ms(300);
+
+	drv_isd2360_play_voice_prompts(  VOPROMPT_HIGH_ALARM,ISD2360_CHANNELCONTROL_SPICMDCH0);
+
+/* 	if ((strcmp(params[0], "high") == 0)) {
 		drv_isd2360_setvolume(20);
 		ssz_delay_ms(300);
 		drv_isd2360_play_voice_prompts(  VOPROMPT_HIGH_ALARM,ISD2360_CHANNELCONTROL_SPICMDCH0);
@@ -1555,7 +1558,7 @@ static int app_drv_music(const char* cmd, char* params[], int param_size)
 		drv_isd2360_setvolume(20);
 		ssz_delay_ms(300);
 		drv_isd2360_play_voice_prompts(  VOPROMPT_BEEP_ALARM,ISD2360_CHANNELCONTROL_SPICMDCH0);
-	}
+	} */
 
 return 0 ;
 }
@@ -2499,7 +2502,7 @@ const static AppCmdInfo g_app_cmd_info[] =
 	{"ad", app_cmd_ad, "show all ad value" },
 
 	{"key", app_cmd_key, "show the status of five keys, true&false = release&press" },
-	{"pca_key", app_cmd_pca_key, "show the status of pca key, true&false = release&press" },
+	{"PCA_KEY", app_cmd_pca_key, "show the status of pca key, true&false = release&press" },
 	{"sensor_position", app_cmd_sensor_position, "show the status of two sensors position, true&false = release&press" },
 	{"sensor_bubble", app_cmd_sensor_bubble, "show the status of sensor bubble, true&false" },
 
@@ -2571,14 +2574,14 @@ const static AppCmdInfo g_app_cmd_info[] =
 	{"motor_run_ex", app_cmd_motor_run_ex, "run by optical coupler encoder, Usage: [optical_coupler_encoder]" },
 	{"motor_reverse_ex", app_cmd_motor_reverse_ex, "motor reverse by optical coupler encoder" },	
 	{"motor_stop", app_cmd_motor_stop, "Usage:motor_stop [three]" },
-	{"move_to", app_cmd_move_to, "move valve to position a or b, Usage: move_to [a|b]"},	
+	{"Move", app_cmd_move_to, "move valve to position a or b, Usage: move_to [a|b]"},	
 	{"STF_motor_run", app_cmd_STF_motor_run, "move valve to position a or b, Usage: move_to [a|b]"},	
 	{"STF_position", app_cmd_STF_position, "check valve position, return value is A or B"},	
 	{"STF_encoder", app_cmd_STF_encoder, "check valve motor encoder value"},	
 			
     {"play", app_drv_isd2360_test_play, "play control,play x. \n\t\t x:1->play alarm high once, 2->isd2360 powerup, 3->isd2360 powerdown"
      "\n\t\t 4->drv_isd2360_pcb_power_disable, 5->drv_isd2360_pcb_power_enable"},
-    {"music", app_drv_music, "music control,usage: music high,music middle,music low"},
+    {"Music", app_drv_music, "music control,usage: music high,music middle,music low"},
           
     {"set_volume", app_drv_isd2360_set_volume, "set_volume 0-255"},
     {"flash", app_sst25_test, "flash control,flash x. \n\t\t x:1->read flash id, 2->2 output Flash test is OK"},
@@ -2607,7 +2610,7 @@ const static AppCmdInfo g_app_cmd_info[] =
 	 "\n\t\t 10->close pressure and bubble sensor,\n\t\t 11->infusion_motor_sleep_enable,\n\t\t 12->wakeup_slaver_pin low,"
 	 "\n\t\t 13->master mcu no up power, 14->isd2360 pcb power off"},	
 	{"test_com", app_cmd_test_com, "test communication with slave MCU" },
-	{"alarm", app_cmd_alarm, "test beep" },
+	{"Alarm", app_cmd_alarm, "test beep" },
 #if MOTOR_ENABLE_CHECK_ENCODER_AFTER_STOP
 	{"encoder_after_stop", app_cmd_encoder_after_stop,"output encoder after motor stop"},
 #endif
