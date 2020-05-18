@@ -307,6 +307,18 @@ void infusion_motor_stop(int stop_cause)
 	}
 
 }
+int infusion_motor_encoder_clear()
+{
+	g_infusion_motor_encoder = 0 ;
+        return 0 ;
+}
+
+int infusion_motor_coupler_encoder_clear()
+{
+	g_infusion_motor_optical_coupler_encoder = 0 ;
+        return 0 ;
+}
+
 int infusion_motor_encoder_after_start()
 {
 	return g_infusion_motor_encoder;

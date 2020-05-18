@@ -1268,6 +1268,13 @@ static int app_cmd_olcd_test(const char* cmd, char* params[], int param_size)
     display_flush_dirty();
          
 
+    
+    
+    
+    
+    
+    
+    
   }  
   
   i = 500 ;
@@ -1464,30 +1471,52 @@ static int app_cmd_infusion_info(const char* cmd, char* params[], int param_size
 
 static int app_cmd_motor_run(const char* cmd, char* params[], int param_size)
 {
-	int encoder = -1;
-	if( param_size != 2 )
-	{
-		printf("Please input right value!\n");
-	}
+	int duty_cycle = 0xFF00 ;
 
 	drv_infusion_motor_sleep_disable();
-	encoder = atoi(params[1]);
-       
+  
 	if( strcmp(params[0],"Forward") == 0 )
 	{
-		infusion_motor_start(kForward, encoder, NULL);
+		duty_cycle = atoi(params[1]);
+		//duty_cycle maxnum is 501
+		drv_infusion_motor_move_forward(duty_cycle);
+		printf("Infusion motor run forward!\n");
 	}
-	else
+	else if( strcmp(params[0],"Backward") == 0 )
 	{
-		infusion_motor_start(kBackward, encoder, NULL);	
+		drv_infusion_motor_move_backward( 0 );
+		printf("Infusion motor run backward!\n");
+	}
+	else if( strcmp(params[0],"Stop") == 0 )
+	{
+		drv_infusion_motor_inertial_stop();
+		printf("Infusion motor stop!\n");
 	}
 	
 	return 0;
 }
 
+static int app_cmd_motor_encoder_test_start(const char* cmd, char* params[], int param_size)
+{
+	g_infusion_motor_state = kMotorRun ;
+	infusion_motor_encoder_clear();
+	infusion_motor_coupler_encoder_clear();
+
+	printf("Infusion motor self encoder test start !\n");
+	return 0 ;
+}
+
 static int app_cmd_motor_self_encoder(const char* cmd, char* params[], int param_size)
 {
-	printf("%d\n",infusion_motor_encoder_after_start());
+	if (infusion_motor_direction() == kForward )
+	{
+		printf("Motor direction is Forward.\n Encoder number is %d\n",infusion_motor_encoder_after_start());
+	}
+	else if(infusion_motor_direction() == kBackward )
+	{
+		printf("Motor direction is Backward.\n Encoder number is %d\n",infusion_motor_encoder_after_start());
+	}
+	
 	return 0 ;
 }
 
@@ -2624,9 +2653,9 @@ const static AppCmdInfo g_app_cmd_info[] =
 	{"battery_voltage_adc", app_cmd_battery_voltage_adc, "show battery voltage adc value, xxx mv" },
 	{"pressure_adc", app_cmd_pressure_adc, "show pressure adc value" },
 
-        {"flash_erase", app_cmd_flash_erase, "flash erase whole chip" },
-        {"flash_write", app_cmd_flash_write, "write flash , usage: flash_write address buff buff_len" },
-        {"flash_read", app_cmd_flash_read, "read flash , usage: flash_read address buff_len " },
+	{"flash_erase", app_cmd_flash_erase, "flash erase whole chip" },
+	{"flash_write", app_cmd_flash_write, "write flash , usage: flash_write address buff buff_len" },
+	{"flash_read", app_cmd_flash_read, "read flash , usage: flash_read address buff_len " },
         
 #if DATA_MODULE_ENABLE
 	{"data", app_cmd_data, "show saved data" },
@@ -2686,7 +2715,8 @@ const static AppCmdInfo g_app_cmd_info[] =
     {"infusion_info", app_cmd_infusion_info, "print current infusion info(status)"},
 
     {"motor_run", app_cmd_motor_run, "Usage: [encoder], e.g.: motor_run, motor_run 50" },
-    {"motor_self_encoder", app_cmd_motor_self_encoder, "check motor self encoder value" },
+	{"motor_self_encoder", app_cmd_motor_self_encoder, "check motor self encoder value" },
+ 	{"motor_encoder_test_start", app_cmd_motor_encoder_test_start, "start test infusion motor encoder" },
     {"motor_ext_encoder", app_cmd_motor_ext_encoder, "check motor externel encoder value" },
             
     {"motor_reverse", app_cmd_motor_reverse, "Usage: [encoder]" },

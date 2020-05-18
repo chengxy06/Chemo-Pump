@@ -57,44 +57,18 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	int another_hall_value;
 
     if (GPIO_Pin == SZ_HALL_A_Pin && g_infusion_motor_state == kMotorRun) {//infusion motor encoder
-		//check direction
+		 
 		another_hall_value = ssz_gpio_is_high(SZ_HALL_B_GPIO_Port, SZ_HALL_B_Pin);
-		//printf("%d\n",another_hall_value);
-		if (g_infusion_motor_running_dir==kForward&& another_hall_value ==1) {
-			g_infusion_motor_direction_error_count++;
-			g_infusion_motor_a_b_direction_error_total ++ ;
-		//	printf("DIR error[%d]\n", g_infusion_motor_direction_error_count);
-		}
-		else if(g_infusion_motor_running_dir == kBackward&& another_hall_value == 0){
-			g_infusion_motor_direction_error_count++;
-			g_infusion_motor_a_b_direction_error_total++;
-		//	printf("DIR error[%d]\n", g_infusion_motor_direction_error_count);
-		}
-		else {
-			//direction is right
-			g_infusion_motor_direction_error_count = 0;
-
-			//add encoder
+		 
+		if (another_hall_value ==1) {
+			g_infusion_motor_running_dir = kBackward ;
 			g_infusion_motor_encoder++;
 		}
-		//if direction error too much, need notify
-		if (!g_infusion_motor_is_event_set &&
-			g_infusion_motor_direction_error_count>=MOTOR_ALLOW_DIRECTION_ERROR_COUNT) {
-			drv_infusion_motor_brake();
-			g_infusion_motor_is_event_set = true;
-			event_set(kEventInfusionMotorDirectionWrong);
+		else if(kBackward&& another_hall_value == 0){
+			g_infusion_motor_running_dir = kForward ;
+			g_infusion_motor_encoder++;
 		}
 
-
-		if (g_infusion_motor_expect_encoder!=-1 &&
-			g_infusion_motor_encoder>=g_infusion_motor_expect_encoder &&
-			!g_infusion_motor_is_event_set)
-		{
-			drv_infusion_motor_brake();
-			g_infusion_motor_is_event_set = true;
-			event_set(kEventInfusionMotorFinishTarget);
-
-		}
 
 #if MOTOR_ENABLE_CALC_SPEED
 		if (g_infusion_motor_is_speed_done == true)
@@ -132,22 +106,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	}
 #endif
 
-    if (GPIO_Pin == SZDJ_SUDU_Pin  && g_infusion_motor_state == kMotorRun) {//infusion motor optical_coupler encoder
+    if (GPIO_Pin == SZDJ_SUDU_Pin  && g_infusion_motor_state == kMotorRun)
+	{//infusion motor optical_coupler encoder
 		g_infusion_motor_optical_coupler_encoder ++;
-        //printf("encoder= %d\n",g_infusion_motor_opticalcoupler_encoder);
-		// infusion motor expected optical_coupler encoder is finished
-		// and stop infusion motor is stop by optical_coupler
-		if (g_infusion_motor_expect_optical_coupler_encoder!=-1 &&
-			g_infusion_motor_optical_coupler_encoder>=g_infusion_motor_expect_optical_coupler_encoder &&
-			!g_infusion_motor_is_event_set)
-		{
-			drv_infusion_motor_brake();
-			g_infusion_motor_is_event_set = true;
-			event_set(kEventInfusionMotorFinishTarget);
-
-		}
     }
-
 
     if (GPIO_Pin == STF_HALL_A_Pin && g_three_valve_motor_state == kMotorRun) {//three-valve motor encoder
 		//check direction
